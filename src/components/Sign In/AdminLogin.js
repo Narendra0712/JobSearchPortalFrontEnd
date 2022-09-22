@@ -29,15 +29,12 @@ const AdminLogin = () => {
             sessionStorage['token'] = result['data']['token']
             sessionStorage['username'] = result['data']['username']
 
-            console.log("Narendra1")
             alert("Login Succesful !");
             navigate("/About")
         }
       })
         .catch((error) => {
           console.log(error);
-          console.log("Kane")
-
           alert("Login Failed !");
         });
     }
@@ -71,24 +68,20 @@ const AdminLogin = () => {
           </div>
           <p className="text-left">
             Click
-            <a href="SignUp"> Here </a>
+            <a href="AdminRegisteration"> Here </a>
             to Register
           </p>
           <div className="form-field">
-            <button onClick={handleApi}>Login</button>
+          <input
+              type="submit"
+              value="Login"
+              className="register"
+              name="register"
+              onClick={handleApi}
+            ></input>
           </div>
         </form>
       </section>
-      <footer className="container">
-        <br></br>
-        <p className="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>
-          © 2022 Jobs Adda, Inc. · <a href="#">Privacy</a> ·
-          <a href="#">Terms</a>
-        </p>
-      </footer>
     </>
   );
 };

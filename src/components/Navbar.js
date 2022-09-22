@@ -9,17 +9,7 @@ const Navbar = () => {
           <Link className="navbar-brand text-light" to="/about">
             Jobs Adda
           </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -49,7 +39,7 @@ const Navbar = () => {
                 <Link
                   className="nav-link active text-light"
                   aria-current="page"
-                  to="JobSeeker"
+                  to="ViewAllJobSeeker"
                 >
                   Job Seekers
                 </Link>
@@ -72,6 +62,45 @@ const Navbar = () => {
                   Jobseeker Profile
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link
+                  className="nav-link active text-light"
+                  aria-current="page"
+                  to="AdminLogin"
+                >
+                  Admin 
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link
+                  className="nav-link active text-light"
+                  aria-current="page"
+                  to="JobProvider"
+                >
+                  Job Provider
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link
+                  className="nav-link active text-light"
+                  aria-current="page"
+                  to="JobProvider"
+                >
+                  Job Seeker
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link active text-light"
+                  aria-current="page"
+                  to="AdminHome"
+                >
+                  Admin Home
+                </Link>
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <input
@@ -84,65 +113,6 @@ const Navbar = () => {
                 Search
               </button>
             </form>
-            <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle text-light"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Login
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="AdminLogin">
-                      Admin
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="AdminLogin">
-                      Job Provider
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="AdminLogin">
-                      Job Seeker
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle text-light"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Register
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="JobSeekerRegistration">
-                      Admin
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="JobSeekerRegistration">
-                      Job Provider
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="JobSeekerRegistration">
-                      Job Seeker
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
           </div>
         </div>
       </nav>

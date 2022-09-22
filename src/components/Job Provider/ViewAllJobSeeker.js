@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const JobSeeker = () => {
+export const ViewAllJobSeeker = () => {
   const [jobseeker, setJobSeekers] = useState([]);
   useEffect(() => {
     fetch("http://localhost:9009/admin/getalljobseeker")
@@ -23,19 +23,16 @@ export const JobSeeker = () => {
                     <div className="table-responsive">
                       <table className="table table-borderless mb-0">
                         <thead>
-                          <tr>
-                           
-                          </tr>
-                           <th className="text-dark">Jobseeker Id</th>
-                            <th className="text-dark">First Name</th>
-                            <th className="text-dark">Middle Name</th>
-                            <th className="text-dark">Last Name</th>
-                            <th className="text-dark">Mobile Number</th>
-                            <th className="text-dark">Email Id</th>
-                            <th className="text-dark">Date of Birth</th>
-                            <th className="text-dark">Age</th>
-                            <th className="text-dark">Gender</th>
-                            <th className="text-dark">Address</th>
+                          <th className="text-dark">Jobseeker Id</th>
+                          <th className="text-dark">First Name</th>
+                          <th className="text-dark">Middle Name</th>
+                          <th className="text-dark">Last Name</th>
+                          <th className="text-dark">Mobile Number</th>
+                          <th className="text-dark">Email Id</th>
+                          <th className="text-dark">Date of Birth</th>
+                          <th className="text-dark">Age</th>
+                          <th className="text-dark">Gender</th>
+                          <th className="text-dark">Address</th>
                         </thead>
                         <tbody>
                           {jobseeker.map((jobseeker) => (
@@ -66,4 +63,4 @@ export const JobSeeker = () => {
   );
 };
 
-export default JobSeeker;
+export default ViewAllJobSeeker;

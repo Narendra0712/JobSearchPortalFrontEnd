@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 
-export const JobseekerProfile = () => {
-  const [jobseeker, setJobSeekers] = useState([]);
+export const ViewAllJobProviders = () => {
+  const [employer, setJobProviders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9009/admin/getalljobseeker")
+    fetch("http://localhost:9009/admin/getalljobprovider")
       .then((res) => res.json())
       .then((result) => {
-        setJobSeekers(result);
+        setJobProviders(result);
       });
   }, []);
   return (
     <>
-    <h1 className="text-center mt-5">Welcome </h1>
+      <h1 className="text-center mt-5">Job Providers List</h1>
       <hr></hr>
       <section className="intro">
         <div className="mask d-flex align-items-center h-100">
@@ -24,32 +24,25 @@ export const JobseekerProfile = () => {
                       <table className="table table-borderless mb-0">
                         <thead>
                           <tr>
-                           
-                          </tr>
-                           <th className="text-dark">Jobseeker Id</th>
+                            <th className="text-dark">Job Provider Id</th>
                             <th className="text-dark">First Name</th>
                             <th className="text-dark">Middle Name</th>
                             <th className="text-dark">Last Name</th>
+                            <th className="text-dark">Company Name</th>
                             <th className="text-dark">Mobile Number</th>
                             <th className="text-dark">Email Id</th>
-                            <th className="text-dark">Date of Birth</th>
-                            <th className="text-dark">Age</th>
-                            <th className="text-dark">Gender</th>
-                            <th className="text-dark">Address</th>
+                          </tr>
                         </thead>
                         <tbody>
-                          {jobseeker.map((jobseeker) => (
-                            <tr key={jobseeker.id}>
-                              <td>{jobseeker.jobseekerid}</td>
-                              <td>{jobseeker.fname}</td>
-                              <td>{jobseeker.mname}</td>
-                              <td>{jobseeker.lname}</td>
-                              <td>{jobseeker.mobilenumber}</td>
-                              <td>{jobseeker.emailid}</td>
-                              <td>{jobseeker.dob}</td>
-                              <td>{jobseeker.age}</td>
-                              <td>{jobseeker.gender}</td>
-                              <td>{jobseeker.address}</td>
+                          {employer.map((jobprovider) => (
+                            <tr key={jobprovider.id}>
+                              <td>{jobprovider.jobproviderid}</td>
+                              <td>{jobprovider.fname}</td>
+                              <td>{jobprovider.mname}</td>
+                              <td>{jobprovider.lname}</td>
+                              <td>{jobprovider.companyname}</td>
+                              <td>{jobprovider.mobileno}</td>
+                              <td>{jobprovider.emailid}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -63,7 +56,7 @@ export const JobseekerProfile = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default JobseekerProfile
+export default ViewAllJobProviders;

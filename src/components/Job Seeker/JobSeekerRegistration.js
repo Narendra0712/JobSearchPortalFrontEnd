@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import swal from 'sweetalert';
+
 
 export const JobSeekerRegistration = () => {
   const [fname, setFname] = useState("");
@@ -15,12 +15,6 @@ export const JobSeekerRegistration = () => {
   const [password, setPassword] = useState("");
 
   const handleClick = (e) => {
-    swal({
-      title: "Registration Succesfull !",
-      icon: "success",
-      button: "Ok",
-    });
-  
     e.preventDefault();
     const student = { fname, mname, lname, emailid,mobilenumber,dob,age, gender,address,username,password };
     console.log(student);
