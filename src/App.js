@@ -10,6 +10,7 @@ import JobSeekerRegistration from './components/JobSeekerRegistration';
 import JobProvider from './components/JobProvider';
 import JobSeeker from './components/JobSeeker';
 import JobInfo from './components/JobInfo';
+import UserProfile from './components/UserProfile'
 
 
 
@@ -25,6 +26,7 @@ function App() {
       <Route path="/JobProvider" element={<JobProvider/>}/>
       <Route path="/JobSeeker" element={<JobSeeker/>}/>
       <Route path="/JobInfo" element={<JobInfo/>}/>
+      <Route path="/UserProfile" element={<UserProfile/>}/>
     </Routes>
     </>
     

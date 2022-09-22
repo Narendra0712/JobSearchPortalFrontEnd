@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-export const JobSeeker = () => {
-  const [jobseeker, setJobSeekers] = useState([]);
+export const UserProfile = () => {
+    const [jobseeker, setJobSeekers] = useState([]);
   useEffect(() => {
     fetch("http://localhost:9009/admin/getalljobseeker")
       .then((res) => res.json())
@@ -11,7 +11,7 @@ export const JobSeeker = () => {
   }, []);
   return (
     <>
-      <h1 className="text-center mt-5">Job Seekers List</h1>
+    <h1 className="text-center mt-5">Welcome </h1>
       <hr></hr>
       <section className="intro">
         <div className="mask d-flex align-items-center h-100">
@@ -63,7 +63,7 @@ export const JobSeeker = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default JobSeeker;
+export default UserProfile

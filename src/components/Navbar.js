@@ -63,6 +63,15 @@ const Navbar = () => {
                   Jobs
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link active text-light"
+                  aria-current="page"
+                  to="UserProfile"
+                >
+                  User Profile
+                </Link>
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <input

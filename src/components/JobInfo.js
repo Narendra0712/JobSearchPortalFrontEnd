@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 
 export const JobInfo = () => {
-  const [job, setStudents] = useState([]);
+  const [job, setJobs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9009/getalljobs")
+    fetch("http://localhost:9009/job/getalljobs")
       .then((res) => res.json())
       .then((result) => {
-        setStudents(result);
+        setJobs(result);
       });
   }, []);
   return (
@@ -40,26 +40,26 @@ export const JobInfo = () => {
                           <tbody>
                             {job.map((job) => (
                               <tr key={job.id}>
-                                <td>{job.job_Id}</td>
-                                <td>{job.job_Title}</td>
+                                <td>{job.jobid}</td>
+                                <td>{job.jobTitle}</td>
                                 <td>{job.salary}</td>
                                 <td>{job.location}</td>
-                                <td>{job.job_Category}</td>
-                                <td>{job.job_Description}</td>
-                                <td>{job.total_Vacancy}</td>
-                                <td>{job.post_Date}</td>
-                                <td>{job.post_Status}</td>
+                                <td>{job.jobCategory}</td>
+                                <td>{job.jobDescription}</td>
+                                <td>{job.totalVacancy}</td>
+                                <td>{job.postDate}</td>
+                                <td>{job.postStatus}</td>
                                 <td>
                                   <button
                                     type="button"
-                                    className="btn btn-warning btn-sm px-3"
+                                    className="btn btn-warning btn-sm px-3 ms-4"
                                   >
                                     Update
                                     <i className="fas fa-times"></i>
                                   </button>
                                   <button
                                     type="button"
-                                    className="btn btn-danger btn-sm px-3"
+                                    className="btn btn-danger btn-sm px-3 mt-4 ms-4"
                                   >
                                     Delete
                                     <i className="fas fa-times"></i>

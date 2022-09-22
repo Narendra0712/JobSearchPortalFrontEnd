@@ -26,13 +26,13 @@ const Login = () => {
             sessionStorage['token'] = result['data']['token']
             sessionStorage['username'] = result['data']['name']
 
-            alert("Login  !");
+            alert("Login Succesful !");
             
         }
       })
         .catch((error) => {
           console.log(error);
-          alert("Login Succesful !");
+          alert("Login Failed !");
         });
     }
   };
@@ -69,15 +69,8 @@ const Login = () => {
             to Register
           </p>
           <div className="form-field">
-            <input
-              type="submit"
-              value="Login"
-              className="register"
-              name="login"
-              onClick={handleApi}
-            ></input>
+            <button onClick={handleApi}>Login</button>
           </div>
-          
         </form>
       </section>
       <footer className="container">

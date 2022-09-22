@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 
 export const JobProvider = () => {
-  const [employer, setStudents] = useState([]);
+  const [employer, setJobProviders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9009/getallemployer")
+    fetch("http://localhost:9009/admin/getalljobprovider")
       .then((res) => res.json())
       .then((result) => {
-        setStudents(result);
+        setJobProviders(result);
       });
   }, []);
   return (
@@ -25,7 +25,7 @@ export const JobProvider = () => {
                         <table className="table table-borderless mb-0">
                           <thead>
                             <tr>
-                              <th className="text-dark">Employer Id</th>
+                              <th className="text-dark">Job Provider Id</th>
                               <th className="text-dark">First Name</th>
                               <th className="text-dark">Middle Name</th>
                               <th className="text-dark">Last Name</th>
@@ -35,26 +35,26 @@ export const JobProvider = () => {
                             </tr>
                           </thead>
                           <tbody>
-                            {employer.map((employer) => (
-                              <tr key={employer.id}>
-                                <td>{employer.jobProviderid}</td>
-                                <td>{employer.firstName}</td>
-                                <td>{employer.middleName}</td>
-                                <td>{employer.lastName}</td>
-                                <td>{employer.companyName}</td>
-                                <td>{employer.mobileNo}</td>
-                                <td>{employer.emailid}</td>
+                            {employer.map((jobprovider) => (
+                              <tr key={jobprovider.id}>
+                                <td>{jobprovider.jobproviderid}</td>
+                                <td>{jobprovider.fname}</td>
+                                <td>{jobprovider.mname}</td>
+                                <td>{jobprovider.lname}</td>
+                                <td>{jobprovider.companyname}</td>
+                                <td>{jobprovider.mobileno}</td>
+                                <td>{jobprovider.emailid}</td>
                                 <td>
                                   <button
                                     type="button"
-                                    className="btn btn-warning btn-sm px-3"
+                                    className="btn btn-warning btn-sm px-3 ms-4"
                                   >
                                     Update
                                     <i className="fas fa-times"></i>
                                   </button>
                                   <button
                                     type="button"
-                                    className="btn btn-danger btn-sm px-3"
+                                    className="btn btn-danger btn-sm px-3 ms-4"
                                   >
                                     Delete
                                     <i className="fas fa-times"></i>
