@@ -5,14 +5,12 @@ import { Link, Route, Routes } from 'react-router-dom'
 import Home from './components/Home';
 import About from './components/About';
 import Navbar from './components/Navbar';
-import Login from './components/Login';
-import JobSeekerRegistration from './components/JobSeekerRegistration';
-import JobProvider from './components/JobProvider';
-import JobSeeker from './components/JobSeeker';
-import JobInfo from './components/JobInfo';
-import UserProfile from './components/UserProfile'
-
-
+import Login from './components/Sign In/Login';
+import JobSeekerRegistration from './components/Job Seeker/JobSeekerRegistration';
+import JobProvider from './components/Job Provider/JobInfo';
+import JobSeeker from './components/Job Seeker/JobSeeker';
+import JobInfo from './components/Job Provider/JobInfo';
+import UserProfile from './components/Job Seeker/UserProfile'
 
 function App() {
   return (
