@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { toast } from 'react-toastify'
 
 
-const Login = () => {
+const AdminLogin = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -87,4 +87,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
