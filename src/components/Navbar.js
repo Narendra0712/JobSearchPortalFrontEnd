@@ -67,9 +67,9 @@ const Navbar = () => {
                 <Link
                   className="nav-link active text-light"
                   aria-current="page"
-                  to="UserProfile"
+                  to="JobseekerProfile"
                 >
-                  User Profile
+                  Jobseeker Profile
                 </Link>
               </li>
             </ul>
@@ -97,17 +97,17 @@ const Navbar = () => {
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="login">
+                    <a class="dropdown-item" href="AdminLogin">
                       Admin
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="login">
+                    <a class="dropdown-item" href="AdminLogin">
                       Job Provider
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="login">
+                    <a class="dropdown-item" href="AdminLogin">
                       Job Seeker
                     </a>
                   </li>

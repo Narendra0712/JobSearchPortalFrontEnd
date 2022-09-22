@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from 'react-toastify'
-
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate=useNavigate()
 
   const handleApi = () => {
     console.log({ username, password });
@@ -15,23 +16,28 @@ const AdminLogin = () => {
     } else if (password.length === 0) {
       toast.error("please enter password");
     } else {
+      const body={username, password}
       axios
-        .post("http://localhost:9009/admin/login", { username, password })
+        .post("http://localhost:9009/admin/login", body)
         .then((response) => {
-          const result = response.data
+         
+        const result = response.data
 
           if (result['status'] === 'error') {
             toast.error('invalid email or password')
           } else {
             sessionStorage['token'] = result['data']['token']
-            sessionStorage['username'] = result['data']['name']
+            sessionStorage['username'] = result['data']['username']
 
+            console.log("Narendra1")
             alert("Login Succesful !");
-            
+            navigate("/About")
         }
       })
         .catch((error) => {
           console.log(error);
+          console.log("Kane")
+
           alert("Login Failed !");
         });
     }

@@ -1,7 +1,19 @@
-
+import {useNavigate} from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 
 export const JobInfo = () => {
+  const navigate = useNavigate();
+
+  const navigateUpdateJobs = () => {
+    
+    navigate('/UpdateJobs');
+  };
+
+  const navigateDeleteJobs = () => {
+    
+    navigate('/DeleteJobs');
+  };
+
   const [job, setJobs] = useState([]);
   useEffect(() => {
     fetch("http://localhost:9009/job/getalljobs")
@@ -52,14 +64,14 @@ export const JobInfo = () => {
                                 <td>
                                   <button
                                     type="button"
-                                    className="btn btn-warning btn-sm px-3 ms-4"
+                                    className="btn btn-warning btn-sm px-3 ms-4" onClick={navigateUpdateJobs}
                                   >
                                     Update
                                     <i className="fas fa-times"></i>
                                   </button>
                                   <button
                                     type="button"
-                                    className="btn btn-danger btn-sm px-3 mt-4 ms-4"
+                                    className="btn btn-danger btn-sm px-3 mt-4 ms-4" onClick={navigateDeleteJobs}
                                   >
                                     Delete
                                     <i className="fas fa-times"></i>
