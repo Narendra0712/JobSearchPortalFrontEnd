@@ -19,9 +19,9 @@ export const JobProviderHome = () => {
             <div class="col-md-3">
               <div class="p-3 bg-warning shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
-                  <h3 class="fs-2 text-dark">View Employees</h3>
+                  <h3 class="fs-2 text-dark">View Profile</h3>
                   <a
-                    href="ViewAllEmployees"
+                    href="JobProviderProfile"
                     class="btn btn-danger active"
                     role="button"
                     aria-pressed="true"

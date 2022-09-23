@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+import { toast } from "react-toastify";
 
 
 export const JobSeekerRegistration = () => {
@@ -18,12 +19,14 @@ export const JobSeekerRegistration = () => {
     e.preventDefault();
     const student = { fname, mname, lname, emailid,mobilenumber,dob,age, gender,address,username,password };
     console.log(student);
-    fetch("http://localhost:9009/addjobseekers", {
+    fetch("http://localhost:9009/jobseeker/addjobseeker", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(student),
     }).then(() => {
-      console.log("New Student added");
+      toast.success('Registration Successful !', {
+        position: toast.POSITION.TOP_CENTER
+    });
     });
   };
   return (

@@ -1,5 +1,6 @@
 
 import './App.css';
+import { ToastContainer } from 'react-toastify';
 
 import { Route, Routes } from 'react-router-dom'
 import Home from './components/Home';
@@ -25,6 +26,8 @@ import ViewAllEmployees from './components/Job Provider/ViewAllEmployees';
 import ViewAllJobSeeker from './components/Job Provider/ViewAllJobSeeker';
 import ViewAllPostedJobs from './components/Job Provider/ViewAllPostedJobs';
 import PostJobs from './components/Job Provider/PostJobs';
+import JobProviderProfile from './components/Job Provider/JobProviderProfile';
+
 
 import JobSeekerRegistration from './components/Job Seeker/JobSeekerRegistration';
 
@@ -59,9 +62,12 @@ function App() {
       <Route path="/ViewAllJobSeeker" element={<ViewAllJobSeeker/>}/>
       <Route path="/ViewAllPostedJobs" element={<ViewAllPostedJobs/>}/>
       <Route path="/PostJobs" element={<PostJobs/>}/>
+      <Route path="/JobProviderProfile" element={<JobProviderProfile/>}/>
+
 
 
     </Routes>
+    <ToastContainer/>
     </>
     
   );

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export const UpdateJobs = () => {
-  const [jobid, setJobId] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [salary, setSalary] = useState("");
   const [location, setLocation] = useState("");

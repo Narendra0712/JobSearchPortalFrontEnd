@@ -24,10 +24,11 @@ export const ViewAllEmployees = () => {
                       <table className="table table-borderless mb-0">
                         <thead>
                           <tr>
-                            <th className="text-dark">Employee Id</th>
+                            <th className="text-dark">Job Provider Id</th>
                             <th className="text-dark">First Name</th>
                             <th className="text-dark">Middle Name</th>
                             <th className="text-dark">Last Name</th>
+                            <th className="text-dark">Company Name</th>
                             <th className="text-dark">Mobile Number</th>
                             <th className="text-dark">Email Id</th>
                           </tr>
@@ -39,6 +40,7 @@ export const ViewAllEmployees = () => {
                               <td>{jobprovider.fname}</td>
                               <td>{jobprovider.mname}</td>
                               <td>{jobprovider.lname}</td>
+                              <td>{jobprovider.companyname}</td>
                               <td>{jobprovider.mobileno}</td>
                               <td>{jobprovider.emailid}</td>
                             </tr>
