@@ -31,7 +31,7 @@ export const JobSeekerRegistration = () => {
       <section className="wrapper">
         <form className="form-right">
           <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
-          <h2 className="text-uppercase text-center">Registration form</h2>
+          <h2 className="text-uppercase text-center">Job Seeker Registration</h2>
           <div className="row">
             <div className="mb-3">
               <label>First Name</label>
@@ -156,16 +156,6 @@ export const JobSeekerRegistration = () => {
           </div>
         </form>
       </section>
-      <footer className="container">
-        <br></br>
-        <p className="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>
-          © 2022 Jobs Adda, Inc. · <a href="#">Privacy</a> ·
-          <a href="#">Terms</a>
-        </p>
-      </footer>
     </>
   );
 };

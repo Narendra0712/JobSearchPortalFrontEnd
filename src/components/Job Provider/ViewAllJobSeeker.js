@@ -11,7 +11,7 @@ export const ViewAllJobSeeker = () => {
   }, []);
   return (
     <>
-      <h1 className="text-center mt-5">Job Seekers List</h1>
+      <h1 className="text-center mt-5">Job Seekers</h1>
       <hr></hr>
       <section className="intro">
         <div className="mask d-flex align-items-center h-100">

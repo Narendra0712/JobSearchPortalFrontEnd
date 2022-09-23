@@ -5,21 +5,28 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './components/Home';
 import About from './components/About';
 import Navbar from './components/Navbar';
-import JobSeekerRegistration from './components/Job Seeker/JobSeekerRegistration';
-import JobProvider from './components/Job Provider/JobInfo';
-import JobseekerProfile from './components/Job Seeker/JobseekerProfile';
+
+
 import AdminLogin from './components/Sign In/AdminLogin';
-import UpdateJobs from './components/Job Provider/UpdateJobs';
-import DeleteJobs from './components/Job Provider/DeleteJobs';
-import ViewAllJobSeeker from './components/Job Provider/ViewAllJobSeeker';
+import JobProviderLogin from './components/Sign In/JobProviderLogin';
+import JobSeekerLogin from './components/Sign In/JobSeekerLogin';
+
 import AdminRegisteration from './components/Admin/AdminRegisteration';
 import AdminHome from './components/Admin/AdminHome';
-import ViewAllJobProviders from './components/Job Provider/ViewAllJobProviders';
 import ViewAllJobs from './components/Admin/ViewAllJobs';
 import AdminProfile from './components/Admin/AdminProfile';
 import UpdateAdmin from './components/Admin/UpdateAdmin';
 import DeleteAdmin from './components/Admin/DeleteAdmin';
+import ViewAllJobprovider from './components/Admin/ViewAllJobprovider'
+
+import JobProviderRegistration from './components/Job Provider/JobProviderRegistration';
 import JobProviderHome from './components/Job Provider/JobProviderHome';
+import ViewAllEmployees from './components/Job Provider/ViewAllEmployees';
+import ViewAllJobSeeker from './components/Job Provider/ViewAllJobSeeker';
+import ViewAllPostedJobs from './components/Job Provider/ViewAllPostedJobs';
+import PostJobs from './components/Job Provider/PostJobs';
+
+import JobSeekerRegistration from './components/Job Seeker/JobSeekerRegistration';
 
 
 function App() {
@@ -30,21 +37,30 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/About" element={<About/>}/>
+
       <Route path="/AdminLogin" element={<AdminLogin/>}/>
+      <Route path="/JobProviderLogin" element={<JobProviderLogin/>}/>
+      <Route path="/JobSeekerLogin" element={<JobSeekerLogin/>}/>
+
+      
       <Route path="/JobSeekerRegistration" element={<JobSeekerRegistration/>}/>
-      <Route path="/JobProvider" element={<JobProvider/>}/>
-      <Route path="/ViewAllJobSeeker" element={<ViewAllJobSeeker/>}/>
-      <Route path="/JobseekerProfile" element={<JobseekerProfile/>}/>
-      <Route path="/UpdateJobs" element={<UpdateJobs/>}/>
-      <Route path="/DeleteJobs" element={<DeleteJobs/>}/>
       <Route path="/AdminRegisteration" element={<AdminRegisteration/>}/>
       <Route path="/AdminHome" element={<AdminHome/>}/>
-      <Route path="/ViewAllJobProviders" element={<ViewAllJobProviders/>}/>
       <Route path="/ViewAllJobs" element={<ViewAllJobs/>}/>
       <Route path="/AdminProfile" element={<AdminProfile/>}/>
       <Route path="/UpdateAdmin" element={<UpdateAdmin/>}/>
       <Route path="/DeleteAdmin" element={<DeleteAdmin/>}/>
+      <Route path="/ViewAllJobprovider" element={<ViewAllJobprovider/>}/>
+
+      
+      <Route path="/JobProviderRegistration" element={<JobProviderRegistration/>}/>
       <Route path="/JobProviderHome" element={<JobProviderHome/>}/>
+      <Route path="/ViewAllEmployees" element={<ViewAllEmployees/>}/>
+      <Route path="/ViewAllJobSeeker" element={<ViewAllJobSeeker/>}/>
+      <Route path="/ViewAllPostedJobs" element={<ViewAllPostedJobs/>}/>
+      <Route path="/PostJobs" element={<PostJobs/>}/>
+
+
     </Routes>
     </>
     

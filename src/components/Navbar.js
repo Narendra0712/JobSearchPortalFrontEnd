@@ -9,7 +9,7 @@ const Navbar = () => {
           <Link className="navbar-brand text-light" to="/about">
             Jobs Adda
           </Link>
-          
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -30,54 +30,16 @@ const Navbar = () => {
                 <Link
                   className="nav-link active text-light"
                   aria-current="page"
-                  to="JobProvider"
-                >
-                  Job Provider
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active text-light"
-                  aria-current="page"
-                  to="ViewAllJobSeeker"
-                >
-                  Job Seekers
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active text-light"
-                  aria-current="page"
-                  to="JobInfo"
-                >
-                  Jobs
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active text-light"
-                  aria-current="page"
-                  to="JobseekerProfile"
-                >
-                  Jobseeker Profile
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link
-                  className="nav-link active text-light"
-                  aria-current="page"
                   to="AdminLogin"
                 >
-                  Admin 
+                  Admin
                 </Link>
               </li>
-
               <li className="nav-item">
                 <Link
                   className="nav-link active text-light"
                   aria-current="page"
-                  to="JobProvider"
+                  to="JobProviderLogin"
                 >
                   Job Provider
                 </Link>
@@ -87,7 +49,7 @@ const Navbar = () => {
                 <Link
                   className="nav-link active text-light"
                   aria-current="page"
-                  to="JobProvider"
+                  to="JobSeekerLogin"
                 >
                   Job Seeker
                 </Link>

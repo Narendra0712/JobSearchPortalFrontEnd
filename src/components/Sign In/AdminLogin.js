@@ -44,7 +44,7 @@ const AdminLogin = () => {
       <section className="wrapper">
         <form className="form-right">
           <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
-          <h2 className="text-uppercase">Log in</h2>
+          <h2 className="text-uppercase">Admin Log in</h2>
 
           <div className="mb-3">
             <label>User Name</label>

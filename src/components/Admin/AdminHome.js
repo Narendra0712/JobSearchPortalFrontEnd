@@ -17,7 +17,7 @@ export const AdminHome = () => {
                         <div class="p-3 bg-warning shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 class="fs-2 text-dark">Job Providers</h3>
-                                <a href="ViewAllJobProviders" class="btn btn-danger active" role="button" aria-pressed="true">View</a>
+                                <a href="ViewAllJobprovider" class="btn btn-danger active" role="button" aria-pressed="true">View</a>
                             </div>
                         </div>
                     </div>

@@ -68,7 +68,7 @@ const Home = () => {
           <h5>Required Skills :</h5>
           <p className="card-text">
             Strong organizational and project management skills. Proficiency with fundamental front-end languages such as HTML, CSS, and JavaScript. Familiarity with JavaScript frameworks such as Angular JS, React, and Amber.</p>
-          <a href="Login" className="btn btn-primary">Apply Now</a>
+          <a href="JobSeekerLogin" className="btn btn-primary">Apply Now</a>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@ const Home = () => {
             Ability to work with no/minimal supervision.
             Understanding of software quality assurance principles
             communication and presentation abilities</p>
-          <a href="Login" className="btn btn-info">Apply Now</a>
+          <a href="JobSeekerLogin" className="btn btn-info">Apply Now</a>
         </div>
       </div>
     </div>
@@ -102,7 +102,7 @@ const Home = () => {
           <h5>Required Skills :</h5>
           <p className="card-text">
             Skills-Statistics, ML, AI, Deep Learning, Advanced Python/R Programming</p>
-          <a href="Login" className="btn btn-success">Apply Now</a>
+          <a href="JobSeekerLogin" className="btn btn-success">Apply Now</a>
         </div>
       </div>
     </div>

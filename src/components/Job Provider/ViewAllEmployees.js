@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const ViewAllJobProviders = () => {
+export const ViewAllEmployees = () => {
   const [employer, setJobProviders] = useState([]);
   useEffect(() => {
     fetch("http://localhost:9009/admin/getalljobprovider")
@@ -11,7 +11,7 @@ export const ViewAllJobProviders = () => {
   }, []);
   return (
     <>
-      <h1 className="text-center mt-5">Job Providers List</h1>
+      <h1 className="text-center mt-5">Employees</h1>
       <hr></hr>
       <section className="intro">
         <div className="mask d-flex align-items-center h-100">
@@ -24,11 +24,10 @@ export const ViewAllJobProviders = () => {
                       <table className="table table-borderless mb-0">
                         <thead>
                           <tr>
-                            <th className="text-dark">Job Provider Id</th>
+                            <th className="text-dark">Employee Id</th>
                             <th className="text-dark">First Name</th>
                             <th className="text-dark">Middle Name</th>
                             <th className="text-dark">Last Name</th>
-                            <th className="text-dark">Company Name</th>
                             <th className="text-dark">Mobile Number</th>
                             <th className="text-dark">Email Id</th>
                           </tr>
@@ -40,7 +39,6 @@ export const ViewAllJobProviders = () => {
                               <td>{jobprovider.fname}</td>
                               <td>{jobprovider.mname}</td>
                               <td>{jobprovider.lname}</td>
-                              <td>{jobprovider.companyname}</td>
                               <td>{jobprovider.mobileno}</td>
                               <td>{jobprovider.emailid}</td>
                             </tr>
@@ -59,4 +57,4 @@ export const ViewAllJobProviders = () => {
   );
 };
 
-export default ViewAllJobProviders;
+export default ViewAllEmployees;
