@@ -1,6 +1,5 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
-
 
 export const JobSeekerRegistration = () => {
   const [fname, setFname] = useState("");
@@ -17,24 +16,61 @@ export const JobSeekerRegistration = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const student = { fname, mname, lname, emailid,mobilenumber,dob,age, gender,address,username,password };
-    console.log(student);
-    fetch("http://localhost:9009/jobseeker/addjobseeker", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(student),
-    }).then(() => {
-      toast.success('Registration Successful !', {
-        position: toast.POSITION.TOP_CENTER
-    });
-    });
+    const student = {
+      fname,
+      mname,
+      lname,
+      emailid,
+      mobilenumber,
+      dob,
+      age,
+      gender,
+      address,
+      username,
+      password,
+    };
+    if (fname.length === 0) {
+      toast.error("Please Enter First Name");
+    } else if (mname.length === 0) {
+      toast.error("Please Enter Middle Name");
+    } else if (lname.length === 0) {
+      toast.error("Please Enter Last Name");
+    } else if (emailid.length === 0) {
+      toast.error("Please Enter Emial Id");
+    } else if (mobilenumber.length === 0) {
+      toast.error("Please Enter Mobile Number");
+    } else if (dob.length === 0) {
+      toast.error("Please Enter Date Of Birth");
+    } else if (age.length === 0) {
+      toast.error("Please Enter Age");
+    } else if (gender.length === 0) {
+      toast.error("Please Enter Gender");
+    } else if (address.length === 0) {
+      toast.error("Please Enter Address");
+    } else if (username.length === 0) {
+      toast.error("Please Enter User Name");
+    } else if (password.length === 0) {
+      toast.error("Please Enter Password");
+    } else {
+      fetch("http://localhost:909/jobseeker/addjobseeker", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(student),
+      }).then(() => {
+        toast.success("Registration Successful !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      });
+    }
   };
   return (
     <>
       <section className="wrapper">
         <form className="form-right">
           <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
-          <h2 className="text-uppercase text-center">Job Seeker Registration</h2>
+          <h2 className="text-uppercase text-center">
+            Job Seeker Registration
+          </h2>
           <div className="row">
             <div className="mb-3">
               <label>First Name</label>
@@ -118,15 +154,15 @@ export const JobSeekerRegistration = () => {
             ></input>
           </div>
           <div className="mb-3">
-              <label>Address</label>
-              <input
-                type="text"
-                className="input-field"
-                required
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              ></input>
-            </div>
+            <label>Address</label>
+            <input
+              type="text"
+              className="input-field"
+              required
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            ></input>
+          </div>
           <div className="mb-3">
             <label>Set User Name</label>
             <input
@@ -134,7 +170,7 @@ export const JobSeekerRegistration = () => {
               className="input-field"
               required
               value={username}
-              onChange={(e) => setUserName(e.target.value)}  
+              onChange={(e) => setUserName(e.target.value)}
             ></input>
           </div>
 
@@ -145,7 +181,7 @@ export const JobSeekerRegistration = () => {
               className="input-field"
               required
               value={password}
-              onChange={(e) => setPassword(e.target.value)}  
+              onChange={(e) => setPassword(e.target.value)}
             ></input>
           </div>
           <div className="form-field">
@@ -160,6 +196,7 @@ export const JobSeekerRegistration = () => {
         </form>
       </section>
     </>
+    
   );
 };
 

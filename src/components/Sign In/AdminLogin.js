@@ -1,44 +1,48 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { ADMINLOGIN } from "../../services/adminservices";
 import { toast } from 'react-toastify'
 import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [username,setUserName]=useState ("")
+  const [password,setPassword]=useState ("")
 
-  const navigate=useNavigate()
+ function handleClick(e)
+ {
+   e.preventDefault();
+   if (username.length === 0 ) {
+    toast.warning("Enter User Name")
+  }
+  else if (password.length === 0) {
+    toast.warning("Enter Password")
+  }
+  else {
+   const postdata ={
+    username,
+    password,
+   };
+   axios.post(ADMINLOGIN,postdata,)
+   .then((response) =>{
 
-  const handleApi = () => {
-    console.log({ username, password });
-    if (username.length === 0) {
-      toast.error("please enter email");
-    } else if (password.length === 0) {
-      toast.error("please enter password");
-    } else {
-      const body={username, password}
-      axios
-        .post("http://localhost:9009/admin/login", body)
-        .then((response) => {
-         
-        const result = response.data
 
-          if (result['status'] === 'error') {
-            toast.error('invalid email or password')
-          } else {
-            sessionStorage['token'] = result['data']['token']
-            sessionStorage['username'] = result['data']['username']
+    const result = response.data
+    console.log(result["data"])
 
-            alert("Login Succesful !");
-            navigate("/About")
-        }
-      })
-        .catch((error) => {
-          console.log(error);
-          alert("Login Failed !");
-        });
+    if (result["status"] === "success") {
+      toast.success("Login Succesfull !")
+
+      const { username,password} = result["data"];
+      sessionStorage["Admin UserName"] = username;
+      sessionStorage["Admin Password"] = password;
     }
-  };
+    else {
+      toast.error("Login Failed !")
+    }
+   });
+
+  }
+};
   return (
     <>
       <section className="wrapper">
@@ -77,7 +81,7 @@ const AdminLogin = () => {
               value="Login"
               className="register"
               name="register"
-              onClick={handleApi}
+              onClick={handleClick}
             ></input>
           </div>
         </form>

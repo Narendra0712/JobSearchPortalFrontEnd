@@ -19,6 +19,7 @@ import AdminProfile from './components/Admin/AdminProfile';
 import UpdateAdmin from './components/Admin/UpdateAdmin';
 import DeleteAdmin from './components/Admin/DeleteAdmin';
 import ViewAllJobprovider from './components/Admin/ViewAllJobprovider'
+import ManageJobProvider from './components/Job Provider/ManageJobProvider'
 
 import JobProviderRegistration from './components/Job Provider/JobProviderRegistration';
 import JobProviderHome from './components/Job Provider/JobProviderHome';
@@ -54,6 +55,7 @@ function App() {
       <Route path="/UpdateAdmin" element={<UpdateAdmin/>}/>
       <Route path="/DeleteAdmin" element={<DeleteAdmin/>}/>
       <Route path="/ViewAllJobprovider" element={<ViewAllJobprovider/>}/>
+      <Route path="/ManageJobProvider" element={<ManageJobProvider/>}/>
 
       
       <Route path="/JobProviderRegistration" element={<JobProviderRegistration/>}/>
@@ -67,7 +69,17 @@ function App() {
 
 
     </Routes>
-    <ToastContainer/>
+    <ToastContainer
+    position="top-center"
+    autoClose={5000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    />
     </>
     
   );

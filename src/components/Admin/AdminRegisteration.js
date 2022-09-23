@@ -1,31 +1,53 @@
 
 import React, { useState } from "react";
-import swal from "sweetalert";
+import { toast } from "react-toastify";
+import { ADDADMIN } from "../../services/adminservices";
+import axios from "axios";
+import { redirect } from "react-router-dom";
 
 export const AdminRegisteration = () => {
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const handleClick = (e) => {
-    swal({
-      title: "Registration Succesfull !",
-      icon: "success",
-      button: "Ok",
-    });
+  
+  const [username,setUserName]=useState ("")
+  const [password,setPassword]=useState ("")
+  
+  
+ function handleClick(e)
+ {
+   e.preventDefault();
+   if (username.length === 0 ) {
+    toast.warning("Enter User Name")
+  }
+  else if (password.length === 0) {
+    toast.warning("Enter Password")
+  }
+  else {
+   const postdata ={
+    username,
+    password,
+   };
+   axios.post(ADDADMIN,postdata,)
+   .then((response) =>{
 
-    e.preventDefault();
-    const student = {
-      username,
-      password,
-    };
-    console.log(student);
-    fetch("http://localhost:9009/addAdmin", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(student),
-    }).then(() => {
-      console.log("New Student added");
-    });
-  };
+
+    const result = response.data
+    console.log(result["data"])
+
+    if (result["status"] === "success") {
+      toast.success("Registration Successful !")
+
+      const { username,password} = result["data"];
+      sessionStorage["Admin UserName"] = username;
+      sessionStorage["Admin Password"] = password;
+
+      redirect('/adminlogin')
+    }
+    else {
+      toast.error("Registraion Fails !")
+    }
+   });
+
+  }
+ }
   return (
     <>
       <section className="wrapper">

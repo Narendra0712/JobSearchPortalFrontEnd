@@ -69,7 +69,7 @@ export const JobProviderHome = () => {
                 <div>
                   <h3 class="fs-2 text-white">Manage Employees</h3>
                   <a
-                    href="AdminProfile"
+                    href="ManageJobProvider"
                     class="btn btn-dark active"
                     role="button"
                     aria-pressed="true"
