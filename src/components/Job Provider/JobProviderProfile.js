@@ -1,19 +1,24 @@
-
 import {useNavigate} from 'react-router-dom';
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import { toast } from 'react-toastify';
 
-export const DeleteAdmin = ({admin}) => {
-    const deleteAdmin =(id)=>{
-        axios.delete('http://localhost:9009/admin/delete?adminid=1').then((response)=>{
-            toast.success("Admin Deleted !")
-        },
-        (error)=>{
-            toast.error("Admin Not Deleted !")
-        })
-    };
+export const AdminProfile = () => {
+  const navigate = useNavigate();
+  const navigateUpdateAdmin = () => {
+    navigate("/UpdateAdmin");
+  };
 
+  const navigateDeleteAdmin = () => {
+    navigate("/DeleteAdmin");
+  };
+
+  const [admin, setAdmins] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:9009/admin/getalladmin")
+      .then((res) => res.json())
+      .then((result) => {
+        setAdmins(result);
+      });
+  }, []);
   return (
     <>
       <h1 className="text-center mt-5">Admin List</h1>
@@ -44,7 +49,7 @@ export const DeleteAdmin = ({admin}) => {
                                 <button
                                   type="button"
                                   className="btn btn-warning btn-sm px-3 ms-3"
-                                 
+                                  onClick={navigateUpdateAdmin}
                                 >
                                   Update
                                   <i className="fas fa-times"></i>
@@ -52,7 +57,7 @@ export const DeleteAdmin = ({admin}) => {
                                 <button
                                   type="button"
                                   className="btn btn-danger btn-sm px-3 ms-3"
-                                  onClick={deleteAdmin}
+                                  onClick={navigateDeleteAdmin}
                                 >
                                   Delete
                                   <i className="fas fa-times"></i>
@@ -74,4 +79,4 @@ export const DeleteAdmin = ({admin}) => {
   );
 };
 
-export default DeleteAdmin;
+export default AdminProfile;
