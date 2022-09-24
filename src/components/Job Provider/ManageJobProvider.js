@@ -22,7 +22,7 @@ export const ManageJobProvider = () => {
   }, []);
   return (
     <>
-      <h1 className="text-center mt-5">Job Providers</h1>
+      <h1 className="text-center mt-5">All Employees</h1>
       <hr></hr>
       <section className="intro">
         <div className="mask d-flex align-items-center h-100">

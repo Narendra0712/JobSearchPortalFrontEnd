@@ -25,7 +25,6 @@ const AdminLogin = () => {
    axios.post(ADMINLOGIN,postdata,)
    .then((response) =>{
 
-
     const result = response.data
     console.log(result["data"])
 
