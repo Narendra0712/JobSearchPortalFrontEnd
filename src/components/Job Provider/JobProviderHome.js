@@ -95,22 +95,6 @@ export const JobProviderHome = () => {
                 </div>
               </div>
             </div>
-
-            <div class="col-md-3">
-              <div class="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
-                <div>
-                  <h3 class="fs-2 text-dark">Update Jobs</h3>
-                  <a
-                    href="ViewAllPostedJobs"
-                    class="btn btn-danger active"
-                    role="button"
-                    aria-pressed="true"
-                  >
-                    Update
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

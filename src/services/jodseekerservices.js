@@ -1,0 +1,1 @@
+export const JOBSEEKERLOGIN ="http://localhost:9009/jobseeker/login";

@@ -11,7 +11,7 @@ export const JobInfo = () => {
   }, []);
   return (
     <>
-      <h1 className="text-center mt-5">Avilable Jobs List</h1><hr></hr>
+      <h1 className="text-center mt-5">Jobs Posted By Job Providers</h1><hr></hr>
       <section className="intro">
     
           <div className="mask d-flex align-items-center h-100">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export const JobSeekerRegistration = () => {
   const [fname, setFname] = useState("");
@@ -13,6 +14,8 @@ export const JobSeekerRegistration = () => {
   const [address, setAddress] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate =useNavigate()
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -52,14 +55,13 @@ export const JobSeekerRegistration = () => {
     } else if (password.length === 0) {
       toast.error("Please Enter Password");
     } else {
-      fetch("http://localhost:909/jobseeker/addjobseeker", {
+      fetch("http://localhost:9009/jobseeker/addjobseeker", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(student),
       }).then(() => {
-        toast.success("Registration Successful !", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        toast.success("Registration Successful !")
+        navigate("/JobSeekerLogin")
       });
     }
   };

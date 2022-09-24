@@ -54,24 +54,6 @@ const Navbar = () => {
                   Job Seeker
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active text-light"
-                  aria-current="page"
-                  to="AdminHome"
-                >
-                  Admin Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active text-light"
-                  aria-current="page"
-                  to="JobProviderHome"
-                >
-                  Job Provider Home
-                </Link>
-              </li>
             </ul>
             <form className="d-flex" role="search">
               <input

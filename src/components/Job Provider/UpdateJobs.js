@@ -12,7 +12,7 @@ export const UpdateJobs = () => {
   
   const handleClick = (e) => {
     e.preventDefault();
-    const updatejob = { jobid, jobTitle, salary,location,jobCategory,jobDescription,totalVacancy,postDate,postStatus};
+    const updatejob = {jobTitle, salary,location,jobCategory,jobDescription,totalVacancy,postDate,postStatus};
     console.log(updatejob);
     fetch("http://localhost:9009/jobprovider/update", {
       method: "PUT",
@@ -120,16 +120,6 @@ export const UpdateJobs = () => {
           </div>
         </form>
       </section>
-      <footer className="container">
-        <br></br>
-        <p className="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>
-          © 2022 Jobs Adda, Inc. · <a href="#">Privacy</a> ·
-          <a href="#">Terms</a>
-        </p>
-      </footer>
     </>
   );
 };

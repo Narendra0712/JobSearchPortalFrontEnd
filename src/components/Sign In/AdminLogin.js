@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const AdminLogin = () => {
   const [username,setUserName]=useState ("")
   const [password,setPassword]=useState ("")
-
+  const navigate =useNavigate()
  function handleClick(e)
  {
    e.preventDefault();
@@ -34,6 +34,8 @@ const AdminLogin = () => {
       const { username,password} = result["data"];
       sessionStorage["Admin UserName"] = username;
       sessionStorage["Admin Password"] = password;
+      
+      navigate("/AdminHome")
     }
     else {
       toast.error("Login Failed !")
@@ -47,14 +49,13 @@ const AdminLogin = () => {
       <section className="wrapper">
         <form className="form-right">
           <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
-          <h2 className="text-uppercase">Admin Log in</h2>
+          <h2 className="text-uppercase">Admin Login</h2>
 
           <div className="mb-3">
             <label>User Name</label>
             <input
               type="text"
               className="input-field"
-              required
               value={username}
               onChange={(e) => setUserName(e.target.value)}
             ></input>
@@ -64,16 +65,10 @@ const AdminLogin = () => {
             <input
               type="password"
               className="input-field"
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></input>
           </div>
-          <p className="text-left">
-            Click
-            <a href="AdminRegisteration"> Here </a>
-            to Register
-          </p>
           <div className="form-field">
           <input
               type="submit"

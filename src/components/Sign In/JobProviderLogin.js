@@ -1,45 +1,49 @@
-
 import axios from "axios";
 import React, { useState } from "react";
+import { JOBPROVIDERLOGIN } from "../../services/jobproviderservices";
 import { toast } from 'react-toastify'
 import { useNavigate } from "react-router-dom";
 
 const JobProviderLogin = () => {
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [username,setUserName]=useState ("")
+  const [password,setPassword]=useState ("")
+  const navigate =useNavigate()
+ function handleClick(e)
+ {
+   e.preventDefault();
+   if (username.length === 0 ) {
+    toast.warning("Enter User Name")
+  }
+  else if (password.length === 0) {
+    toast.warning("Enter Password")
+  }
+  else {
+   const postdata ={
+    username,
+    password,
+   };
+   axios.post(JOBPROVIDERLOGIN,postdata,)
+   .then((response) =>{
 
-  const navigate=useNavigate()
+    const result = response.data
+    console.log(result["data"])
 
-  const handleApi = () => {
-    console.log({ username, password });
-    if (username.length === 0) {
-      toast.error("please enter email");
-    } else if (password.length === 0) {
-      toast.error("please enter password");
-    } else {
-      const body={username, password}
-      axios
-        .post("http://localhost:9009/admin/login", body)
-        .then((response) => {
-         
-        const result = response.data
+    if (result["status"] === "success") {
+      toast.success("Login Succesfull !")
 
-          if (result['status'] === 'error') {
-            toast.error('invalid email or password')
-          } else {
-            sessionStorage['token'] = result['data']['token']
-            sessionStorage['username'] = result['data']['username']
-
-            alert("Login Succesful !");
-            navigate("/About")
-        }
-      })
-        .catch((error) => {
-          console.log(error);
-          alert("Login Failed !");
-        });
+      const { username,password} = result["data"];
+      sessionStorage["Admin UserName"] = username;
+      sessionStorage["Admin Password"] = password;
+      
+      navigate("/JobProviderHome")
     }
-  };
+    else {
+      toast.error("Login Failed !")
+    }
+   });
+
+  }
+};
   return (
     <>
       <section className="wrapper">
@@ -52,7 +56,6 @@ const JobProviderLogin = () => {
             <input
               type="text"
               className="input-field"
-              required
               value={username}
               onChange={(e) => setUserName(e.target.value)}
             ></input>
@@ -62,7 +65,6 @@ const JobProviderLogin = () => {
             <input
               type="password"
               className="input-field"
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></input>
@@ -78,7 +80,7 @@ const JobProviderLogin = () => {
               value="Login"
               className="register"
               name="register"
-              onClick={handleApi}
+              onClick={handleClick}
             ></input>
           </div>
         </form>

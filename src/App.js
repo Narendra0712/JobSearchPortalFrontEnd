@@ -28,9 +28,19 @@ import ViewAllJobSeeker from './components/Job Provider/ViewAllJobSeeker';
 import ViewAllPostedJobs from './components/Job Provider/ViewAllPostedJobs';
 import PostJobs from './components/Job Provider/PostJobs';
 import JobProviderProfile from './components/Job Provider/JobProviderProfile';
+import UpdateJobs from './components/Job Provider/UpdateJobs'
 
 
 import JobSeekerRegistration from './components/Job Seeker/JobSeekerRegistration';
+import JobSeekerHome from './components/Job Seeker/JobSeekerHome';
+import JobseekerProfile from './components/Job Seeker/JobseekerProfile';
+import ManageProfile from './components/Job Seeker/ManageProfile';
+import UpdateEducation from'./components/Job Seeker/UpdateEducation';
+import UpdateExperiance from'./components/Job Seeker/UpdateExperiance';
+import UpdateProfile from'./components/Job Seeker/UpdateProfile';
+import ApplyForJobs from'./components/Job Seeker/ApplyForJobs';
+
+
 
 
 function App() {
@@ -65,7 +75,16 @@ function App() {
       <Route path="/ViewAllPostedJobs" element={<ViewAllPostedJobs/>}/>
       <Route path="/PostJobs" element={<PostJobs/>}/>
       <Route path="/JobProviderProfile" element={<JobProviderProfile/>}/>
+      <Route path="/UpdateJobs" element={<UpdateJobs/>}/>
 
+
+      <Route path="/JobSeekerHome" element={<JobSeekerHome/>}/>
+      <Route path="/JobseekerProfile" element={<JobseekerProfile/>}/>
+      <Route path="/ManageProfile" element={<ManageProfile/>}/>
+      <Route path="/UpdateProfile" element={<UpdateProfile/>}/>
+      <Route path="/ApplyForJobs" element={<ApplyForJobs/>}/>
+      <Route path="/UpdateEducation" element={<UpdateEducation/>}/>
+      <Route path="/UpdateExperiance" element={<UpdateExperiance/>}/>
 
 
     </Routes>

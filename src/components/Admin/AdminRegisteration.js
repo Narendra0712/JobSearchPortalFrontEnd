@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { ADDADMIN } from "../../services/adminservices";
 import axios from "axios";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const AdminRegisteration = () => {
   
   const [username,setUserName]=useState ("")
   const [password,setPassword]=useState ("")
-  
+  const navigate =useNavigate()
   
  function handleClick(e)
  {
@@ -39,10 +39,10 @@ export const AdminRegisteration = () => {
       sessionStorage["Admin UserName"] = username;
       sessionStorage["Admin Password"] = password;
 
-      redirect('/adminlogin')
+      navigate("/AdminLogin")
     }
     else {
-      toast.error("Registraion Fails !")
+      toast.error("Registraion Failed !")
     }
    });
 
@@ -60,7 +60,6 @@ export const AdminRegisteration = () => {
             <input
               type="text"
               className="input-field"
-              required
               value={username}
               onChange={(e) => setUserName(e.target.value)}
             ></input>
@@ -71,7 +70,6 @@ export const AdminRegisteration = () => {
             <input
               type="password"
               className="input-field"
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></input>
