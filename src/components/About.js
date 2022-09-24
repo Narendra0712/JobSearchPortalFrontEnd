@@ -92,7 +92,7 @@ const About = () => {
                       className="bd-placeholder-img"
                       width="200"
                       height="250"
-                      src="thumb1.jpg"
+                      src="thumb1"
                       alt=""
                     />
                   </div>

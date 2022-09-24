@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export const PostJobs = () => {
   const [jobTitle, setJobTitle] = useState("");
@@ -10,6 +11,8 @@ export const PostJobs = () => {
   const [totalVacancy, setTotalVacancy] = useState("");
   const [postDate, setPostDate] = useState("");
   const [postStatus, setPostStatus] = useState("");
+
+  const navigate =useNavigate()
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -36,9 +39,8 @@ export const PostJobs = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(student),
       }).then(() => {
-        toast.success("Registration Successful !", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        toast.success("Job Posted Successfully !");
+        navigate("/ViewAllPostedJobs")
       });
     }
   };

@@ -55,7 +55,7 @@ export const AdminProfile = () => {
         <div class="col text-center">
           <a
             href="AdminRegisteration"
-            className=" col-md-1 ms-3 mb-3 text-center btn btn-secondary"
+            className="col-md-1 ms-3 mb-3 text-center btn btn-secondary"
           >
             Add Admin
           </a>
