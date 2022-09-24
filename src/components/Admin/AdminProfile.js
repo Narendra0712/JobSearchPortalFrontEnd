@@ -4,9 +4,6 @@ import adminservices from "../../services/adminservices";
 
 export const AdminProfile = () => {
   const navigate = useNavigate();
-  const navigateUpdateAdmin = () => {
-    navigate("/UpdateAdmin");
-  };
 
   // const navigateDeleteAdmin = () => {
   //   navigate("/DeleteAdmin");
@@ -15,6 +12,10 @@ export const AdminProfile = () => {
   useEffect(() => {
     getAllAdmins();
   }, []);
+
+  const navigateUpdateAdmin = (adminid) => {
+    navigate("/UpdateAdmin", { state: { id: adminid } });
+  };
 
   const getAllAdmins = () => {
     adminservices
@@ -48,7 +49,7 @@ export const AdminProfile = () => {
   // }, []);
   return (
     <>
-      <h1 className="text-center mt-5 ms-5">Admin List</h1>
+      <h1 className="text-center mt-5">Admin List</h1>
       <hr></hr>
       <div class="row">
         <div class="col text-center">
@@ -71,7 +72,7 @@ export const AdminProfile = () => {
                       <table className="table table-borderless mb-0">
                         <thead>
                           <tr>
-                            <th className="text-dark">Admin Id</th>
+                            <th className="text-dark">Job Id</th>
                             <th className="text-dark">User Name</th>
                             <th className="text-dark">Password</th>
                           </tr>
@@ -86,7 +87,9 @@ export const AdminProfile = () => {
                                 <button
                                   type="button"
                                   className="btn btn-warning btn-sm px-3 ms-3"
-                                  onClick={navigateUpdateAdmin}
+                                  onClick={() =>
+                                    navigateUpdateAdmin(admin.adminid)
+                                  }
                                 >
                                   Update
                                   <i className="fas fa-times"></i>

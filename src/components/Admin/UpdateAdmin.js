@@ -1,27 +1,48 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import adminservices from "../../services/adminservices";
 
 export const UpdateAdmin = () => {
+  // const [admin, setAdmins] = useState("");
+  const [adminid, setAdminid] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const id = location.state.id;
 
-  useEffect(() => {}, []);
-
-  const getAllAdmin = () => {
-    fetch("http://localhost:9009/admin/getalladmin").then(
-      (response)=>{
-        console.log(response);
-      },
-      (error)=>{
+  useEffect(() => {
+    adminservices
+      .getAdminById(id)
+      .then((response) => {
+        setAdminid(response.data.adminid);
+        setUsername(response.data.username);
+        setPassword(response.data.password);
+      })
+      .catch((error) => {
         console.log(error);
-      }
-    )
+      });
+  }, []);
+
+  const UpdateAdmin = (e) => {
+    e.preventDefault();
+    const admin = { username, password, adminid };
+
+    if (id) {
+      adminservices
+        .updateAdmin(admin)
+        .then((response) => {
+          console.log(response.data);
+          toast.success("Updated Successfully");
+          navigate("/AdminProfile");
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Updation Failed");
+        });
+    }
   };
-
-  useEffect(()=>{
-    getAllAdmin();
-  },[]);
-
   return (
     <>
       <section className="wrapper">
@@ -55,7 +76,7 @@ export const UpdateAdmin = () => {
               value="Update"
               className="register"
               name="register"
-              
+              onClick={(e) => UpdateAdmin(e)}
             ></input>
           </div>
         </form>
