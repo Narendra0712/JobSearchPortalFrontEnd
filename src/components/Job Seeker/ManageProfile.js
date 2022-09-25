@@ -39,15 +39,6 @@ export const ManageProfile = () => {
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-3">
-                        <div class="p-3 bg-danger shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div> 
-                                <h3 class="fs-2 text-white">Apply For Jobs</h3>
-                                <a href="ApplyForJobs" class="btn btn-dark active" role="button" aria-pressed="true">Apply</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

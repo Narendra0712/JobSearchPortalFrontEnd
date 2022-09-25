@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const JobseekerProfile = () => {
+export const JobSeekerProfile = () => {
   const [jobseeker, setJobSeekers] = useState([]);
   useEffect(() => {
     fetch("http://localhost:9009/admin/getalljobseeker")
@@ -66,4 +66,4 @@ export const JobseekerProfile = () => {
   )
 }
 
-export default JobseekerProfile
+export default JobSeekerProfile

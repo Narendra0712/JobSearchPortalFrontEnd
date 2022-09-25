@@ -33,12 +33,13 @@ import UpdateJobs from './components/Job Provider/UpdateJobs'
 
 import JobSeekerRegistration from './components/Job Seeker/JobSeekerRegistration';
 import JobSeekerHome from './components/Job Seeker/JobSeekerHome';
-import JobseekerProfile from './components/Job Seeker/JobseekerProfile';
+import JobSeekerProfile from './components/Job Seeker/JobSeekerProfile';
 import ManageProfile from './components/Job Seeker/ManageProfile';
 import UpdateEducation from'./components/Job Seeker/UpdateEducation';
 import UpdateExperiance from'./components/Job Seeker/UpdateExperiance';
 import UpdateProfile from'./components/Job Seeker/UpdateProfile';
 import ApplyForJobs from'./components/Job Seeker/ApplyForJobs';
+import ViewJobSeekerProfile from './components/Job Seeker/ViewJobSeekerProfile';
 
 
 
@@ -79,13 +80,14 @@ function App() {
 
 
       <Route path="/JobSeekerHome" element={<JobSeekerHome/>}/>
-      <Route path="/JobseekerProfile" element={<JobseekerProfile/>}/>
+      <Route path="/JobSeekerProfile" element={<JobSeekerProfile/>}/>
       <Route path="/ManageProfile" element={<ManageProfile/>}/>
       <Route path="/UpdateProfile" element={<UpdateProfile/>}/>
       <Route path="/ApplyForJobs" element={<ApplyForJobs/>}/>
       <Route path="/UpdateEducation" element={<UpdateEducation/>}/>
       <Route path="/UpdateExperiance" element={<UpdateExperiance/>}/>
-
+      <Route path="/ViewJobSeekerProfile" element={<ViewJobSeekerProfile/>}/>
+      
 
     </Routes>
     <ToastContainer

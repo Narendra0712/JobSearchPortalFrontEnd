@@ -5,6 +5,8 @@ import { toast } from 'react-toastify'
 import { useNavigate } from "react-router-dom";
 
 const JobSeekerLogin = () => {
+  
+  const [jobseekerid,setJobSeekerId]=useState ("")
   const [username,setUserName]=useState ("")
   const [password,setPassword]=useState ("")
   const navigate =useNavigate()
@@ -31,9 +33,11 @@ const JobSeekerLogin = () => {
     if (result["status"] === "success") {
       toast.success("Login Succesfull !")
 
-      const { username,password} = result["data"];
-      sessionStorage["Admin UserName"] = username;
-      sessionStorage["Admin Password"] = password;
+      const { jobseekerid,username,password} = result["data"];
+
+      sessionStorage["JobSeekerId"] = jobseekerid;
+      sessionStorage["JobSeeker UserName"] = username;
+      sessionStorage["JobSeeker Password"] = password;
       
       navigate("/JobSeekerHome")
     }
