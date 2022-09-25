@@ -76,7 +76,7 @@ export const JobProviderHome = () => {
             <div class="col-md-3">
               <div class="p-3 bg-secondary shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
-                  <h3 class="fs-2 text-white">Post New Jobs</h3>
+                  <h3 class="fs-2 text-white">Post New Job</h3>
                   <a
                     href="PostJobs"
                     class="btn btn-danger active"
