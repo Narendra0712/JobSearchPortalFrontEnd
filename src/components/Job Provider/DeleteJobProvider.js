@@ -1,28 +1,23 @@
+import axios from "axios";
+import { toast } from "react-toastify";
 
-import {useNavigate} from 'react-router-dom';
-import React, { useEffect, useState } from "react";
-
-export const ManageJobProvider = () => {
-  const navigate = useNavigate();
-  const navigateUpdateAdmin = () => {
-    navigate("/UpadateJobProviderProfile");
+export const DeleteJobProvider = ({ jobprovider }) => {
+  const deleteJobProvider = (id) => {
+    axios
+      .delete("http://localhost:9009/jobprovider/delete?jobproviderid=1")
+      .then(
+        (response) => {
+          toast.success("Delete successfully !");
+        },
+        (error) => {
+          toast.error("Deletion Failed!");
+        }
+      );
   };
 
-  const deleteJobProvider = () => {
-    navigate("/DeleteJobProvider");
-  };
-
-  const [admin, setAdmins] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:9009/admin/getalljobprovider")
-      .then((res) => res.json())
-      .then((result) => {
-        setAdmins(result);
-      });
-  }, []);
   return (
     <>
-      <h1 className="text-center mt-5">All Employees</h1>
+      <h1 className="text-center mt-5">Job Providers</h1>
       <hr></hr>
       <section className="intro">
         <div className="mask d-flex align-items-center h-100">
@@ -45,24 +40,17 @@ export const ManageJobProvider = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {admin.map((employer) => (
-                            <tr key={employer.id}>
-                              <td>{employer.jobproviderid}</td>
-                              <td>{employer.fname}</td>
-                              <td>{employer.mname}</td>
-                              <td>{employer.lname}</td>
-                              <td>{employer.companyname}</td>
-                              <td>{employer.mobileno}</td>
-                              <td>{employer.emailid}</td>
+                          {jobprovider.map((jobprovider) => (
+                            <tr key={jobprovider.id}>
+                              <td>{jobprovider.jobproviderid}</td>
+                              <td>{jobprovider.fname}</td>
+                              <td>{jobprovider.mname}</td>
+                              <td>{jobprovider.lname}</td>
+                              <td>{jobprovider.companyname}</td>
+                              <td>{jobprovider.mobileno}</td>
+                              <td>{jobprovider.emailid}</td>
+
                               <td>
-                                <button
-                                  type="button"
-                                  className="btn btn-warning btn-sm px-3 ms-3"
-                                  onClick={navigateUpdateAdmin}
-                                >
-                                  Update
-                                  <i className="fas fa-times"></i>
-                                </button>
                                 <button
                                   type="button"
                                   className="btn btn-danger btn-sm px-3 ms-3"
@@ -88,4 +76,4 @@ export const ManageJobProvider = () => {
   );
 };
 
-export default ManageJobProvider;
+export default DeleteJobProvider;

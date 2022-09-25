@@ -1,12 +1,13 @@
 
 import './App.css';
 import { ToastContainer } from 'react-toastify';
-
 import { Route, Routes } from 'react-router-dom'
+
+import Protected from './Protected';
+
 import Home from './components/Home';
 import About from './components/About';
 import Navbar from './components/Navbar';
-
 
 import AdminLogin from './components/Sign In/AdminLogin';
 import JobProviderLogin from './components/Sign In/JobProviderLogin';
@@ -18,8 +19,9 @@ import ViewAllJobs from './components/Admin/ViewAllJobs';
 import AdminProfile from './components/Admin/AdminProfile';
 import UpdateAdmin from './components/Admin/UpdateAdmin';
 import DeleteAdmin from './components/Admin/DeleteAdmin';
-import ViewAllJobprovider from './components/Admin/ViewAllJobprovider'
-import ManageJobProvider from './components/Job Provider/ManageJobProvider'
+import ViewAllJobprovider from './components/Admin/ViewAllJobprovider';
+import ManageJobProvider from './components/Job Provider/ManageJobProvider';
+import DeleteJobProvider from './components/Job Provider/DeleteJobProvider';
 
 import JobProviderRegistration from './components/Job Provider/JobProviderRegistration';
 import JobProviderHome from './components/Job Provider/JobProviderHome';
@@ -40,8 +42,9 @@ import UpdateExperiance from'./components/Job Seeker/UpdateExperiance';
 import UpdateProfile from'./components/Job Seeker/UpdateProfile';
 import ApplyForJobs from'./components/Job Seeker/ApplyForJobs';
 import ViewJobSeekerProfile from './components/Job Seeker/ViewJobSeekerProfile';
-import AddEducation from './components/Job Seeker/AddEducation'
-import AddExperiance from './components/Job Seeker/AddExperiance'
+import AddEducation from './components/Job Seeker/AddEducation';
+import AddExperiance from './components/Job Seeker/AddExperiance';
+import UpadateJobProviderProfile from './components/Job Provider/UpadateJobProviderProfile';
 
 
 function App() {
@@ -77,6 +80,9 @@ function App() {
       <Route path="/PostJobs" element={<PostJobs/>}/>
       <Route path="/JobProviderProfile" element={<JobProviderProfile/>}/>
       <Route path="/UpdateJobs" element={<UpdateJobs/>}/>
+      <Route path="/DeleteJobProvider" element={<DeleteJobProvider/>}/>
+      <Route path="/UpadateJobProviderProfile" element={<UpadateJobProviderProfile/>}/>
+
 
 
       <Route path="/JobSeekerHome" element={<JobSeekerHome/>}/>
