@@ -107,7 +107,7 @@ const Home = () => {
                           <th className="text-dark">Post Status</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody className="fs-5">
                         {job.map((job) => (
                           <tr key={job.id}>
                             <td>{job.jobTitle}</td>
@@ -118,7 +118,7 @@ const Home = () => {
                             <td>
                               <button
                                 type="button"
-                                className="btn btn-warning btn-sm px-3 ms-3"
+                                className="btn btn-warning px-3 ms-3"
                                 onClick={navigateApplyForJob}
                               >
                                 Apply
