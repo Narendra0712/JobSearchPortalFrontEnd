@@ -40,8 +40,8 @@ import UpdateExperiance from'./components/Job Seeker/UpdateExperiance';
 import UpdateProfile from'./components/Job Seeker/UpdateProfile';
 import ApplyForJobs from'./components/Job Seeker/ApplyForJobs';
 import ViewJobSeekerProfile from './components/Job Seeker/ViewJobSeekerProfile';
-
-
+import AddEducation from './components/Job Seeker/AddEducation'
+import AddExperiance from './components/Job Seeker/AddExperiance'
 
 
 function App() {
@@ -87,6 +87,9 @@ function App() {
       <Route path="/UpdateEducation" element={<UpdateEducation/>}/>
       <Route path="/UpdateExperiance" element={<UpdateExperiance/>}/>
       <Route path="/ViewJobSeekerProfile" element={<ViewJobSeekerProfile/>}/>
+      <Route path="/AddEducation" element={<AddEducation/>}/>
+      <Route path="/AddExperiance" element={<AddExperiance/>}/>
+
       
 
     </Routes>

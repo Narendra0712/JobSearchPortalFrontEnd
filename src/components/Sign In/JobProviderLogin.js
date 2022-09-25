@@ -31,9 +31,11 @@ const JobProviderLogin = () => {
     if (result["status"] === "success") {
       toast.success("Login Succesfull !")
 
-      const { username,password} = result["data"];
-      sessionStorage["Admin UserName"] = username;
-      sessionStorage["Admin Password"] = password;
+      const { jobproviderid,username,password} = result["data"];
+      
+      sessionStorage["JobProviderId"] = jobproviderid;
+      sessionStorage["JobProvider UserName"] = username;
+      sessionStorage["JobProvider Password"] = password;
       
       navigate("/JobProviderHome")
     }

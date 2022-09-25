@@ -6,11 +6,6 @@ export const JobProviderHome = () => {
       <div id="page-content-wrapper">
       <div className="wrapper">
           <h2 class="fs-2 m-0 py-5 px-5">Job Provider Dashboard</h2>
-          <div class="bs-jpbutton">
-            <a href="JobProviderLogin" className="btn btn-danger btn-lg">
-              Logout
-            </a>
-          </div>
         </div>
         <div class="container-fluid px-4">
           <div class="row g-3 my-2">

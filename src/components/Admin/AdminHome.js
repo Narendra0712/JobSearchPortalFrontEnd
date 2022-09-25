@@ -7,9 +7,6 @@ export const AdminHome = () => {
         <div className="wrapper">
           <h2 class="fs-2 m-0 py-5 px-5">Admin Dashboard</h2>
           <div class="bs-button">
-            <a href="AdminLogin" className="btn btn-danger btn-lg">
-              Logout
-            </a>
           </div>
         </div>
 

@@ -39,7 +39,7 @@ export const UpdateProfile = () => {
       });
   }, []);
 
-  const updateJobSeeker = (e) => {
+  const UpdateJobSeeker = (e) => {
     e.preventDefault();
     const jobseeker = {
       jobseekerid,
@@ -177,7 +177,7 @@ export const UpdateProfile = () => {
                     value="Update"
                     className="register"
                     name="register"
-                    onClick={(e) => updateJobSeeker(e)}
+                    onClick={(e) => UpdateJobSeeker(e)}
                   ></input>
                 </div>
               </div>
