@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import jobproviderservices from "../../services/jobproviderservices";
 
 export const UpdateJobs = () => {
+  const [jobid,setJobId] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [salary, setSalary] = useState("");
   const [location, setLocation] = useState("");
@@ -10,18 +15,49 @@ export const UpdateJobs = () => {
   const [postDate, setPostDate] = useState("");
   const [postStatus, setPostStatus] = useState("");
   
-  const handleClick = (e) => {
-    e.preventDefault();
-    const updatejob = {jobTitle, salary,location,jobCategory,jobDescription,totalVacancy,postDate,postStatus};
-    console.log(updatejob);
-    fetch("http://localhost:9009/jobprovider/update", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatejob),
-    }).then(() => {
-      console.log("New Student added");
+  const navigate = useNavigate();
+  const uslocation = useLocation();
+  const id = uslocation.state.id;
+
+
+  useEffect(()=>{
+    jobproviderservices
+    .getJobById(id)
+    .then((response)=>{
+      setJobId(response.data.jobid);
+      setJobTitle(response.data.jobTitle);
+      setSalary(response.data.salary);
+      setLocation(response.data.location);
+      setJobCategory(response.data.jobCategory);
+      setJobDescription(response.data.jobDescription);
+      setTotalVacancy(response.data.totalVacancy);
+      setPostDate(response.data.postDate);
+      setPostStatus(response.data.postStatus);
+    }).catch((error) => {
+      console.log(error);
     });
+  },[]);
+
+  const UpdateJobs = (e)=>{
+    e.preventDefault();
+    const jobupdate ={
+      jobid,jobTitle,salary,location,jobCategory,jobDescription,totalVacancy,postDate,postStatus
+    };
+    if (id) {
+      jobproviderservices
+        .updatePostedJobs(jobupdate)
+        .then((response) => {
+          console.log(response.data);
+          toast.success("Updated Successfully");
+          navigate("/JobProviderHome");
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Updation Failed");
+        });
+    }
   };
+  
   return (
     <>
       <section className="wrapper">
@@ -115,7 +151,7 @@ export const UpdateJobs = () => {
               value="Update Job"
               className="register"
               name="register"
-              onClick={handleClick}
+              onClick={UpdateJobs}
             ></input>
           </div>
         </form>

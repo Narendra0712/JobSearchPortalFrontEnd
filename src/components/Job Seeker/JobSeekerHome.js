@@ -31,7 +31,7 @@ export const JobSeekerHome = () => {
                 <div>
                   <h3 class="fs-2 text-white">View Jobs</h3>
                   <a
-                    href="ViewAllJobs"
+                    href="ViewAvilableJobs"
                     class="btn btn-danger active"
                     role="button"
                     aria-pressed="true"
@@ -74,13 +74,20 @@ export const JobSeekerHome = () => {
               </div>
             </div>
             <div class="col-md-3">
-                        <div class="p-3 bg-secondary shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div> 
-                                <h3 class="fs-2 text-white">Apply For Jobs</h3>
-                                <a href="ApplyForJobs" class="btn btn-danger active" role="button" aria-pressed="true">Apply</a>
-                            </div>
-                        </div>
-                    </div>
+              <div class="p-3 bg-secondary shadow-sm d-flex justify-content-around align-items-center rounded">
+                <div>
+                  <h3 class="fs-2 text-white">Apply For Jobs</h3>
+                  <a
+                    href="ApplyForJob"
+                    class="btn btn-danger active"
+                    role="button"
+                    aria-pressed="true"
+                  >
+                    Apply
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

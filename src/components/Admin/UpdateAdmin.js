@@ -8,6 +8,7 @@ export const UpdateAdmin = () => {
   const [adminid, setAdminid] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
   const navigate = useNavigate();
   const location = useLocation();
   const id = location.state.id;

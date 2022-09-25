@@ -40,12 +40,12 @@ import ManageProfile from './components/Job Seeker/ManageProfile';
 import UpdateEducation from'./components/Job Seeker/UpdateEducation';
 import UpdateExperiance from'./components/Job Seeker/UpdateExperiance';
 import UpdateProfile from'./components/Job Seeker/UpdateProfile';
-import ApplyForJobs from'./components/Job Seeker/ApplyForJobs';
 import ViewJobSeekerProfile from './components/Job Seeker/ViewJobSeekerProfile';
 import AddEducation from './components/Job Seeker/AddEducation';
 import AddExperiance from './components/Job Seeker/AddExperiance';
 import UpadateJobProviderProfile from './components/Job Provider/UpadateJobProviderProfile';
-
+import ViewAvilableJobs from './components/Job Seeker/ViewAvilableJobs';
+import ApplyForJob from './components/Job Seeker/ApplyForJob';
 
 function App() {
   return (
@@ -82,19 +82,20 @@ function App() {
       <Route path="/UpdateJobs" element={<UpdateJobs/>}/>
       <Route path="/DeleteJobProvider" element={<DeleteJobProvider/>}/>
       <Route path="/UpadateJobProviderProfile" element={<UpadateJobProviderProfile/>}/>
-
+      <Route path="/AddExperiance" element={<AddExperiance/>}/>
 
 
       <Route path="/JobSeekerHome" element={<JobSeekerHome/>}/>
       <Route path="/JobSeekerProfile" element={<JobSeekerProfile/>}/>
       <Route path="/ManageProfile" element={<ManageProfile/>}/>
       <Route path="/UpdateProfile" element={<UpdateProfile/>}/>
-      <Route path="/ApplyForJobs" element={<ApplyForJobs/>}/>
       <Route path="/UpdateEducation" element={<UpdateEducation/>}/>
       <Route path="/UpdateExperiance" element={<UpdateExperiance/>}/>
       <Route path="/ViewJobSeekerProfile" element={<ViewJobSeekerProfile/>}/>
       <Route path="/AddEducation" element={<AddEducation/>}/>
       <Route path="/AddExperiance" element={<AddExperiance/>}/>
+      <Route path="/ViewAvilableJobs" element={<ViewAvilableJobs/>}/>
+      <Route path="/ApplyForJob" element={<ApplyForJob/>}/>
 
       
 

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import jobproviderservices from "../../services/jobproviderservices";
 
-export const ViewAllPostedJobs = () => {
+export const ViewAvilableJobs = () => {
 
   const navigate = useNavigate();
-  const navigateUpdateJobs = (jobid) => {
-    navigate("/UpdateJobs",  { state: { id: jobid } });
+  const navigateApplyForJob = () => {
+    navigate("/ApplyForJob");
   };
 
   const [job, setJobs] = useState([]);
@@ -25,18 +25,7 @@ export const ViewAllPostedJobs = () => {
         console.log(error);
       });
   };
-  const deleteJobs = (jobid) => {
-    jobproviderservices
-      .deleteJobs(jobid)
-      .then((response) => {
-        getAllJobs();
-        console.log("Getting");
-      })
-      .catch((error) => {
-        console.log("error");
-        console.log(error);
-      });
-  };
+
 
   return (
     <>
@@ -66,7 +55,7 @@ export const ViewAllPostedJobs = () => {
                           </thead>
                           <tbody>
                             {job.map((job) => (
-                              <tr key={job.jobid}>
+                              <tr key={job.id}>
                                 <td>{job.jobid}</td>
                                 <td>{job.jobTitle}</td>
                                 <td>{job.salary}</td>
@@ -79,18 +68,10 @@ export const ViewAllPostedJobs = () => {
                                 <td>
                                 <button
                                   type="button"
-                                  className="btn btn-warning btn-sm px-3 ms-3 mt-3"
-                                  onClick={()=>navigateUpdateJobs(job.jobid)}
+                                  className="btn btn-warning btn-sm px-3 ms-3"
+                                  onClick={navigateApplyForJob}
                                 >
-                                  Update
-                                  <i className="fas fa-times"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  className="btn btn-danger btn-sm px-3 ms-3 mt-3"
-                                  onClick={() => deleteJobs(job.jobid)}
-                                >
-                                  Delete
+                                  Apply
                                   <i className="fas fa-times"></i>
                                 </button>
                               </td>
@@ -112,4 +93,4 @@ export const ViewAllPostedJobs = () => {
 };
 
 
-export default ViewAllPostedJobs
+export default ViewAvilableJobs

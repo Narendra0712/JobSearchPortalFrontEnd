@@ -1,89 +1,55 @@
-
-import {useNavigate} from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 
 export const ManageJobProvider = () => {
-  const navigate = useNavigate();
-  const navigateUpdateAdmin = () => {
-    navigate("/UpadateJobProviderProfile");
-  };
-
-  const deleteJobProvider = () => {
-    navigate("/DeleteJobProvider");
-  };
-
-  const [admin, setAdmins] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:9009/admin/getalljobprovider")
-      .then((res) => res.json())
-      .then((result) => {
-        setAdmins(result);
-      });
-  }, []);
   return (
     <>
-      <h1 className="text-center mt-5">All Employees</h1>
-      <hr></hr>
-      <section className="intro">
-        <div className="mask d-flex align-items-center h-100">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12">
-                <div className="card shadow-2-strong">
-                  <div className="card-body">
-                    <div className="table-responsive">
-                      <table className="table table-borderless mb-0">
-                        <thead>
-                          <tr>
-                            <th className="text-dark">Job Provider Id</th>
-                            <th className="text-dark">First Name</th>
-                            <th className="text-dark">Middle Name</th>
-                            <th className="text-dark">Last Name</th>
-                            <th className="text-dark">Company Name</th>
-                            <th className="text-dark">Mobile Number</th>
-                            <th className="text-dark">Email Id</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {admin.map((employer) => (
-                            <tr key={employer.id}>
-                              <td>{employer.jobproviderid}</td>
-                              <td>{employer.fname}</td>
-                              <td>{employer.mname}</td>
-                              <td>{employer.lname}</td>
-                              <td>{employer.companyname}</td>
-                              <td>{employer.mobileno}</td>
-                              <td>{employer.emailid}</td>
-                              <td>
-                                <button
-                                  type="button"
-                                  className="btn btn-warning btn-sm px-3 ms-3"
-                                  onClick={navigateUpdateAdmin}
-                                >
-                                  Update
-                                  <i className="fas fa-times"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  className="btn btn-danger btn-sm px-3 ms-3"
-                                  onClick={deleteJobProvider}
-                                >
-                                  Delete
-                                  <i className="fas fa-times"></i>
-                                </button>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+      <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+          <div class="d-flex align-items-center">
+            <i
+              class="fas fa-align-left primary-text fs-4 me-3"
+              id="menu-toggle"
+            ></i>
+            <h2 class="fs-2 m-0">Manage Profile</h2>
+          </div>
+        </nav>
+
+        <div class="container-fluid px-4">
+          <div class="row g-3 my-2">
+            <div class="col-md-3">
+              <div class="p-3 bg-warning shadow-sm d-flex justify-content-around align-items-center rounded">
+                <div>
+                  <h3 class="fs-2 text-dark">Update Profile</h3>
+                  <a
+                    href="UpadateJobProviderProfile"
+                    class="btn btn-danger active"
+                    role="button"
+                    aria-pressed="true"
+                  >
+                    Update
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="p-3 bg-danger shadow-sm d-flex justify-content-around align-items-center rounded">
+                <div>
+                  <h3 class="fs-2 text-light">Delete Profile</h3>
+                  <a
+                    href="DeleteJobProvider"
+                    class="btn btn-dark active"
+                    role="button"
+                    aria-pressed="true"
+                  >
+                    Delete
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 };

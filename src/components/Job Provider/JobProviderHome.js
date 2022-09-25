@@ -60,7 +60,7 @@ export const JobProviderHome = () => {
             <div class="col-md-3">
               <div class="p-3 bg-danger shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
-                  <h3 class="fs-2 text-white">Manage Employees</h3>
+                  <h3 class="fs-2 text-white">Manage Profile</h3>
                   <a
                     href="ManageJobProvider"
                     class="btn btn-dark active"

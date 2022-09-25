@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import jobseekerservices from "../../services/jobproviderservices";
+import jobseekerservices from "../../services/jodseekerservices";
 
 export const UpdateProfile = () => {
   const [jobseekerid, setJobSeekerId] = useState("");
@@ -14,11 +14,13 @@ export const UpdateProfile = () => {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const id = location.state.id;
-
+  
+  const id = window.sessionStorage.getItem("JobSeekerId");
+  
   useEffect(() => {
     jobseekerservices
       .getJobSeekerById(id)
@@ -33,6 +35,8 @@ export const UpdateProfile = () => {
         setAge(response.data.age);
         setGender(response.data.gender);
         setAddress(response.data.address);
+        setUserName(response.data.username);
+        setPassword(response.data.password);
       })
       .catch((error) => {
         console.log(error);
@@ -52,6 +56,8 @@ export const UpdateProfile = () => {
       age,
       gender,
       address,
+      username,
+      password
     };
 
     if (id) {
@@ -60,7 +66,7 @@ export const UpdateProfile = () => {
         .then((response) => {
           console.log(response.data);
           toast.success("Updated Successfully");
-          navigate("/JobseekerProfile");
+          navigate("/JobseekerHome");
         })
         .catch((error) => {
           console.log(error);
@@ -81,14 +87,6 @@ export const UpdateProfile = () => {
             <div class="row mb-5 gx-5">
               <div class="col-xxl-8 mb-5 mb-xxl-0">
                 <div class="row g-3">
-                  <div>
-                    <label class="form-label">Job Seeker Id</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      value={jobseekerid}
-                    ></input>
-                  </div>
                   <div>
                     <label class="form-label mb-3">First Name</label>
                     <input
@@ -168,6 +166,24 @@ export const UpdateProfile = () => {
                       class="form-control"
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label class="form-label">User Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value={username}
+                      onChange={(e) => setUserName(e.target.value)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label class="form-label">Password</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     ></input>
                   </div>
                 </div>

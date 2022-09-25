@@ -1,30 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import jobproviderservices from "../../services/jobproviderservices";
 
 export const UpadateJobProviderProfile = () => {
+  const [jobproviderid, setJobProviderId]= useState("");
   const [fname, setFname] = useState("");
   const [mname, setMname] = useState("");
   const [lname, setLname] = useState("");
   const [companyname, setCompanyName] = useState("");
   const [emailid, setEmailid] = useState("");
   const [mobileno, setMobileNumber] = useState("");
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const id = location.state.id;
+
+  const id = window.sessionStorage.getItem("JobProviderId");
 
   useEffect(() => {
     jobproviderservices
       .getJobProviderById(id)
       .then((response) => {
+        setJobProviderId(response.data.jobproviderid);
         setFname(response.data.fname);
         setMname(response.data.mname);
         setLname(response.data.lname);
         setCompanyName(response.data.companyname);
         setEmailid(response.data.emailid);
         setMobileNumber(response.data.mobileno);
+        setUserName(response.data.username);
+        setPassword(response.data.password);
       })
       .catch((error) => {
         console.log(error);
@@ -33,7 +39,8 @@ export const UpadateJobProviderProfile = () => {
 
   const UpdateJobProvider = (e) => {
     e.preventDefault();
-    const jobprovider = { fname, mname, lname, companyname, emailid, mobileno };
+    const jobprovider = {jobproviderid, fname, mname, lname, companyname, emailid, mobileno,username,
+      password };
 
     if (id) {
       jobproviderservices
@@ -41,7 +48,7 @@ export const UpadateJobProviderProfile = () => {
         .then((response) => {
           console.log(response.data);
           toast.success("Updated Successfully");
-          navigate("/JobProviderProfile");
+          navigate("/JobProviderHome");
         })
         .catch((error) => {
           console.log(error);
@@ -56,7 +63,7 @@ export const UpadateJobProviderProfile = () => {
         <form className="form-right">
           <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
           <h2 className="text-uppercase text-center">
-            Job Provider Registration
+            Update Details
           </h2>
           <div className="row">
             <div className="mb-3">

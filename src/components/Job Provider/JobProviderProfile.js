@@ -10,7 +10,7 @@ export const JobProviderProfile = () => {
   const [lname, setLname] = useState("");
   const [companyname, setCompanyName] = useState("");
   const [emailid, setEmailid] = useState("");
-  const [mobilenumber, setMobileNumber] = useState("");
+  const [mobileno, setMobileNumber] = useState("");
   
   const id = window.sessionStorage.getItem("JobProviderId");
 
@@ -23,8 +23,8 @@ export const JobProviderProfile = () => {
         setMname(response.data.mname);
         setLname(response.data.lname);
         setCompanyName(response.data.companyname);
+        setMobileNumber(response.data.mobileno);
         setEmailid(response.data.emailid);
-        setMobileNumber(response.data.mobilenumber);
       })
       .catch((error) => {
         console.log(error);
@@ -60,11 +60,11 @@ export const JobProviderProfile = () => {
                   </div>
                   <div>
                     <label class="form-label">Company Name</label><br></br>
-                    <div class="col-sm-9 fs-5">{mobilenumber}</div><hr></hr>
+                    <div class="col-sm-9 fs-5">{companyname}</div><hr></hr>
                   </div>
                   <div>
                     <label class="form-label">Mobile Number</label><br></br>
-                    <div class="col-sm-9 fs-5">{companyname}</div><hr></hr>
+                    <div class="col-sm-9 fs-5">{mobileno}</div><hr></hr>
                   </div>
                   <div>
                     <label class="form-label">Email Id</label><br></br>

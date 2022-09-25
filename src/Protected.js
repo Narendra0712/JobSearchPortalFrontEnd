@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {useNavigate } from 'react-router-dom'
 
-export const Protected = () => {
+function Protected(props) {
+    let Cmp=props.Cmp
+    const history = useNavigate ();
+    useEffect(()=>{
+        if(!localStorage.getItem('user-info')){
+            history.push('./AdminLogin')
+        }
+    },[])
   return (
-    <div>Protected</div>
+    <div>
+        <Cmp/>
+    </div>
   )
 }
 
