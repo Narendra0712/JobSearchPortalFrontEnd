@@ -9,8 +9,7 @@ export const Experience = () => {
       <div id="page-content-wrapper">
         <div class="container-fluid px-4">
           <div class="row g-3 my-2">
-
-          <div class="col-md-3">
+            <div class="col-md-3">
               <div class="p-3 bg-warning shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
                   <h3 class="fs-2 text-dark">Experience Details</h3>
@@ -37,22 +36,6 @@ export const Experience = () => {
                     aria-pressed="true"
                   >
                     Add
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
-                <div>
-                  <h3 class="fs-2 text-dark">Update Experience</h3>
-                  <a
-                    href="UpdateExperiance"
-                    class="btn btn-danger active"
-                    role="button"
-                    aria-pressed="true"
-                  >
-                    Update
                   </a>
                 </div>
               </div>

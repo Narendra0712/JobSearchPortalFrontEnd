@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import jobseekerservices from "../../services/jodseekerservices";
+import jobseekerservices from "../../services/jobseekerservices";
 
 export const UpdateEducation = () => {
-  const [educationid, setEducationid]= useState("");
+  const [educationid, setEducationid] = useState("");
   const [educationtype, setEducationtype] = useState("");
   const [sscpercent, setSscpercent] = useState("");
   const [hscpercent, setHscpercent] = useState("");
@@ -19,11 +19,11 @@ export const UpdateEducation = () => {
 
   const navigate = useNavigate();
 
-  const id = window.sessionStorage.getItem("EducationId");
+  const jobseekerid = window.sessionStorage.getItem("JobSeekerId");
 
   useEffect(() => {
     jobseekerservices
-      .updateEducation(id)
+      .getEducation(jobseekerid)
       .then((response) => {
         setEducationid(response.data.educationid);
         setEducationtype(response.data.educationtype);
@@ -37,7 +37,6 @@ export const UpdateEducation = () => {
         setDiplomayear(response.data.diplomayear);
         setDegreeyear(response.data.degreeyear);
         setMastersyear(response.data.mastersyear);
-
       })
       .catch((error) => {
         console.log(error);
@@ -46,10 +45,25 @@ export const UpdateEducation = () => {
 
   const UpdateEducation = (e) => {
     e.preventDefault();
-    const education = {educationid, educationtype, sscpercent, hscpercent, diplomapercent, degreepercent, masterspercent,sscyear,
-      hscyear,diplomayear, degreeyear, mastersyear  };
+    const education = {
+      educationid,
+      educationtype,
+      sscpercent,
+      hscpercent,
+      diplomapercent,
+      degreepercent,
+      masterspercent,
+      sscyear,
+      hscyear,
+      diplomayear,
+      degreeyear,
+      mastersyear,
+      jobseeker:{
+        jobseekerid
+      }
+    };
 
-    if (id) {
+    if (jobseekerid) {
       jobseekerservices
         .updateEducation(education)
         .then((response) => {
@@ -66,23 +80,11 @@ export const UpdateEducation = () => {
 
   return (
     <>
-    <section className="wrapper">
-      <form className="form-right">
-        <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
-        <h2 className="text-uppercase text-center">
-          Update Details
-        </h2>
-        <div className="row">
-          <div className="mb-3">
-            <label>Education id</label>
-            <input
-              type="text"
-              className="input-field"
-              required
-              value={educationid}
-              onChange={(e) => setEducationid(e.target.value)}
-            ></input>
-          </div>
+      <div className="wrapper">
+        <h2 class="fs-2 m-0 py-5 px-5"> Update Education Details</h2>
+      </div>
+      <section className="wrapper">
+        <form className="form-right">
           <div className="mb-3">
             <label>Education Type</label>
             <input
@@ -94,7 +96,7 @@ export const UpdateEducation = () => {
             ></input>
           </div>
           <div className="mb-3">
-            <label>SSC Percent</label>
+            <label>SSC Percentage</label>
             <input
               type="text"
               className="input-field"
@@ -103,49 +105,8 @@ export const UpdateEducation = () => {
               onChange={(e) => setSscpercent(e.target.value)}
             ></input>
           </div>
-        </div>
-        <div className="mb-3">
-          <label>HSC Percent </label>
-          <input
-            type="text"
-            className="input-field"
-            required
-            value={hscpercent}
-            onChange={(e) => setHscpercent(e.target.value)}
-          ></input>
-        </div>
-        <div className="mb-3">
-          <label>Diploma Percent </label>
-          <input
-            type="text"
-            className="input-field"
-            required
-            value={diplomapercent}
-            onChange={(e) => setDiplomapercent(e.target.value)}
-          ></input>
-        </div>
-        <div className="mb-3">
-          <label>Degree Percent </label>
-          <input
-            type="text"
-            className="input-field"
-            required
-            value={degreepercent}
-            onChange={(e) => setDegreepercent(e.target.value)}
-          ></input>
-        </div>
-        <div className="mb-3">
-            <label>Masters Percent</label>
-            <input
-              type="text"
-              className="input-field"
-              required
-              value={masterspercent}
-              onChange={(e) =>setMasterspercent(e.target.value)}
-            ></input>
-          </div>
           <div className="mb-3">
-            <label>SSC Year </label>
+            <label>SSC Passout Year </label>
             <input
               type="text"
               className="input-field"
@@ -154,61 +115,99 @@ export const UpdateEducation = () => {
               onChange={(e) => setSscyear(e.target.value)}
             ></input>
           </div>
-      
-        <div className="mb-3">
-          <label> HSC Year</label>
-          <input
-            type="text"
-            className="input-field"
-            required
-            value={hscyear}
-            onChange={(e) => setHscyear(e.target.value)}
-          ></input>
-        </div>
-        <div className="mb-3">
-          <label>Diploma Year </label>
-          <input
-            type="text"
-            className="input-field"
-            required
-            value={diplomayear}
-            onChange={(e) => setDiplomayear(e.target.value)}
-          ></input>
-        </div>
-        <div className="mb-3">
-          <label>Degree Year </label>
-          <input
-            type="text"
-            className="input-field"
-            required
-            value={degreeyear}
-            onChange={(e) => setDegreeyear(e.target.value)}
-          ></input>
-        </div>
-        <div className="mb-3">
-          <label>Master Year</label>
-          <input
-            type="text"
-            className="input-field"
-            required
-            value={mastersyear}
-            onChange={(e) => setMastersyear(e.target.value)}
-          ></input>
-        </div>
-        <div className="form-field">
-          <input
-            type="submit"
-            value="Update"
-            className="register"
-            name="register"
-            onClick={UpdateEducation}
-          ></input>
-        </div>
-      </form>
-    </section>
-  </>
-  )
+          <div className="mb-3">
+            <label>HSC Percentage </label>
+            <input
+              type="text"
+              className="input-field"
+              required
+              value={hscpercent}
+              onChange={(e) => setHscpercent(e.target.value)}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label> HSC Passout Year</label>
+            <input
+              type="text"
+              className="input-field"
+              required
+              value={hscyear}
+              onChange={(e) => setHscyear(e.target.value)}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label>Diploma Percentage </label>
+            <input
+              type="text"
+              className="input-field"
+              required
+              value={diplomapercent}
+              onChange={(e) => setDiplomapercent(e.target.value)}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label>Diploma Passout Year </label>
+            <input
+              type="text"
+              className="input-field"
+              required
+              value={diplomayear}
+              onChange={(e) => setDiplomayear(e.target.value)}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label>Degree Percentage </label>
+            <input
+              type="text"
+              className="input-field"
+              required
+              value={degreepercent}
+              onChange={(e) => setDegreepercent(e.target.value)}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label>Degree Passout Year </label>
+            <input
+              type="text"
+              className="input-field"
+              required
+              value={degreeyear}
+              onChange={(e) => setDegreeyear(e.target.value)}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label>Master Degree Percentage</label>
+            <input
+              type="text"
+              className="input-field"
+              required
+              value={masterspercent}
+              onChange={(e) => setMasterspercent(e.target.value)}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label>Master Degree Passout Year</label>
+            <input
+              type="text"
+              className="input-field"
+              required
+              value={mastersyear}
+              onChange={(e) => setMastersyear(e.target.value)}
+            ></input>
+          </div>
+          <div className="form-field">
+            <input
+              type="submit"
+              value="Update"
+              className="register"
+              name="register"
+              onClick={UpdateEducation}
+            ></input>
+          </div>
+        </form>
+      </section>
+    </>
+  );
+};
 
-}
-
-export default UpdateEducation
+export default UpdateEducation;

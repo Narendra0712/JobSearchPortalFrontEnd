@@ -21,7 +21,6 @@ import UpdateAdmin from './components/Admin/UpdateAdmin';
 import DeleteAdmin from './components/Admin/DeleteAdmin';
 import ViewAllJobprovider from './components/Admin/ViewAllJobprovider';
 import ManageJobProvider from './components/Job Provider/ManageJobProvider';
-// import DeleteJobProvider from './components/Job Provider/DeleteJobProvider';
 import JobProviderRegistration from './components/Job Provider/JobProviderRegistration';
 import JobProviderHome from './components/Job Provider/JobProviderHome';
 import ViewAllEmployees from './components/Job Provider/ViewAllEmployees';
@@ -34,22 +33,21 @@ import UpdateJobs from './components/Job Provider/UpdateJobs'
 
 import JobSeekerRegistration from './components/Job Seeker/JobSeekerRegistration';
 import JobSeekerHome from './components/Job Seeker/JobSeekerHome';
-import JobSeekerProfile from './components/Job Seeker/JobSeekerProfile';
 import ManageProfile from './components/Job Seeker/ManageProfile';
 import UpdateEducation from'./components/Job Seeker/UpdateEducation';
-import UpdateExperiance from'./components/Job Seeker/UpdateExperiance';
+import UpdateExperience from'./components/Job Seeker/UpdateExperience';
 import UpdateProfile from'./components/Job Seeker/UpdateProfile';
 import ViewJobSeekerProfile from './components/Job Seeker/ViewJobSeekerProfile';
 import AddEducation from './components/Job Seeker/AddEducation';
 import AddExperiance from './components/Job Seeker/AddExperiance';
 import UpadateJobProviderProfile from './components/Job Provider/UpadateJobProviderProfile';
-import ViewAvilableJobs from './components/Job Seeker/ViewAvilableJobs';
+import ViewAvailableJobs from './components/Job Seeker/ViewAvailableJobs';
 import ApplyForJob from './components/Job Seeker/ApplyForJob';
 import Experience from './components/Job Seeker/Experience';
 import Education from './components/Job Seeker/Education';
-import EduactionDetail from './components/Job Seeker/EduactionDetail';
+import EducationDetail from './components/Job Seeker/EducationDetail';
 import ExperienceDetail from './components/Job Seeker/ExperienceDetail';
-
+import ViewAppliedJobs from './components/Job Seeker/ViewAppliedJobs';
 
 function App() {
   return (
@@ -84,30 +82,26 @@ function App() {
       <Route path="/PostJobs" element={<PostJobs/>}/>
       <Route path="/JobProviderProfile" element={<JobProviderProfile/>}/>
       <Route path="/UpdateJobs" element={<UpdateJobs/>}/>
-
       <Route path="/UpadateJobProviderProfile" element={<UpadateJobProviderProfile/>}/>
       <Route path="/AddExperiance" element={<AddExperiance/>}/>
 
 
       <Route path="/JobSeekerHome" element={<JobSeekerHome/>}/>
-      <Route path="/JobSeekerProfile" element={<JobSeekerProfile/>}/>
       <Route path="/ManageProfile" element={<ManageProfile/>}/>
       <Route path="/UpdateProfile" element={<UpdateProfile/>}/>
       <Route path="/UpdateEducation" element={<UpdateEducation/>}/>
-      <Route path="/UpdateExperiance" element={<UpdateExperiance/>}/>
+      <Route path="/UpdateExperience" element={<UpdateExperience/>}/>
       <Route path="/ViewJobSeekerProfile" element={<ViewJobSeekerProfile/>}/>
       <Route path="/AddEducation" element={<AddEducation/>}/>
       <Route path="/AddExperiance" element={<AddExperiance/>}/>
-      <Route path="/ViewAvilableJobs" element={<ViewAvilableJobs/>}/>
+      <Route path="/ViewAvailableJobs" element={<ViewAvailableJobs/>}/>
       <Route path="/ApplyForJob" element={<ApplyForJob/>}/>
       <Route path="/Experience" element={<Experience/>}/>
       <Route path="/Education" element={<Education/>}/>
-      <Route path="/EduactionDetail" element={<EduactionDetail/>}/>
+      <Route path="/EducationDetail" element={<EducationDetail/>}/>
       <Route path="/ExperienceDetail" element={<ExperienceDetail/>}/>
+      <Route path="/ViewAppliedJobs" element={<ViewAppliedJobs/>}/>
 
-
-
-      
 
     </Routes>
     <ToastContainer

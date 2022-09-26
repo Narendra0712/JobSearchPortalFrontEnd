@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { JOBSEEKERLOGIN } from "../../services/jodseekerservices";
+import { JOBSEEKERLOGIN } from "../../services/jobseekerservices";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -23,16 +23,15 @@ const JobSeekerLogin = () => {
       axios.post(JOBSEEKERLOGIN, postdata).then((response) => {
         const result = response.data;
         console.log(result["data"]);
+        console.log(result["status"]);
 
         if (result["status"] === "success") {
-          toast.success("Login Succesfull !");
-
+          toast.success("Login Successful !")
+          
           const { jobseekerid, username, password } = result["data"];
-
           sessionStorage["JobSeekerId"] = jobseekerid;
-          sessionStorage["JobSeeker UserName"] = username;
-          sessionStorage["JobSeeker Password"] = password;
-
+          sessionStorage["JobSeekerUname"] = username;
+          sessionStorage["JobSeekerPass"] = password;
           navigate("/JobSeekerHome");
         } else {
           toast.error("Login Failed !");

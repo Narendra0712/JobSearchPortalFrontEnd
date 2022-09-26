@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import jobseekerservices from "../../services/jodseekerservices";
-  
+import jobseekerservices from "../../services/jobseekerservices";
+
 export const UpdateExperience = () => {
-    const [expid, setExpid]= useState("");
-    const [companyname, setCompanyname] = useState("");
-    const [companysector, setCompanysector] = useState("");
-    const [jobtitle, setJobtitle] = useState("");
-    const [location, setLocation] = useState("");
-    const [duration, setDuration] = useState("");
 
+  const [expid, setExpid] = useState("");
+  const [companyname, setCompanyname] = useState("");
+  const [companysector, setCompanysector] = useState("");
+  const [jobtitle, setJobtitle] = useState("");
+  const [location, setLocation] = useState("");
+  const [duration, setDuration] = useState("");
+  
+  const jobseekerid = window.sessionStorage.getItem("JobSeekerId");
 
-    const navigate = useNavigate();
-
-  const id = window.sessionStorage.getItem("ExperienceId");
+  const navigate = useNavigate();
+  const jslocation = useLocation();
+  const id = jslocation.state.id;
 
   useEffect(() => {
     jobseekerservices
-      .updateExperience(id)
+      .getExperienceById(id)
       .then((response) => {
         setExpid(response.data.expid);
         setCompanyname(response.data.companyname);
@@ -34,7 +36,17 @@ export const UpdateExperience = () => {
 
   const UpdateExperience = (e) => {
     e.preventDefault();
-    const experience = {expid, companyname, companysector, jobtitle, location, duration};
+    const experience = {
+      expid,
+      companyname,
+      companysector,
+      jobtitle,
+      location,
+      duration,
+      jobseeker:{
+        jobseekerid
+      }
+    };
 
     if (id) {
       jobseekerservices
@@ -42,7 +54,7 @@ export const UpdateExperience = () => {
         .then((response) => {
           console.log(response.data);
           toast.success("Updated Successfully");
-          navigate("/JobSeekerHome");
+          navigate("/Experience");
         })
         .catch((error) => {
           console.log(error);
@@ -51,16 +63,13 @@ export const UpdateExperience = () => {
     }
   };
 
-
-  
-    return (
-      <>
+  return (
+    <>
+      <div className="wrapper">
+        <h2 class="fs-2 m-0 py-5 px-5">Update Experience Details</h2>
+      </div>
       <section className="wrapper">
         <form className="form-right">
-          <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
-          <h2 className="text-uppercase text-center">
-            Update Details
-          </h2>
           <div className="row">
             <div className="mb-3">
               <label>Experience id</label>
@@ -114,7 +123,7 @@ export const UpdateExperience = () => {
             ></input>
           </div>
           <div className="mb-3">
-            <label>Duration  </label>
+            <label>Duration </label>
             <input
               type="text"
               className="input-field"
@@ -124,19 +133,18 @@ export const UpdateExperience = () => {
             ></input>
           </div>
           <div className="form-field">
-          <input
-            type="submit"
-            value="Update"
-            className="register"
-            name="register"
-            onClick={UpdateExperience}
-          ></input>
-        </div>
-      </form>
-    </section>
-  </>
-  )
-    }
-
+            <input
+              type="submit"
+              value="Update"
+              className="register"
+              name="register"
+              onClick={UpdateExperience}
+            ></input>
+          </div>
+        </form>
+      </section>
+    </>
+  );
+};
 
 export default UpdateExperience;

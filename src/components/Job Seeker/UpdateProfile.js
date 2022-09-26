@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import jobseekerservices from "../../services/jodseekerservices";
+import jobseekerservices from "../../services/jobseekerservices";
 
 export const UpdateProfile = () => {
   const [jobseekerid, setJobSeekerId] = useState("");

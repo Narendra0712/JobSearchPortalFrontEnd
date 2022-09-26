@@ -30,7 +30,7 @@ export const JobSeekerHome = () => {
                 <div>
                   <h3 class="fs-2 text-white">View Jobs</h3>
                   <a
-                    href="ViewAvilableJobs"
+                    href="ViewAvailableJobs"
                     class="btn btn-danger active"
                     role="button"
                     aria-pressed="true"
@@ -46,7 +46,7 @@ export const JobSeekerHome = () => {
                 <div>
                   <h3 class="fs-2 text-dark">View Applied Jobs</h3>
                   <a
-                    href="ViewAllJobs"
+                    href="ViewAppliedJobs"
                     class="btn btn-danger active"
                     role="button"
                     aria-pressed="true"
@@ -68,21 +68,6 @@ export const JobSeekerHome = () => {
                     aria-pressed="true"
                   >
                     View
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="p-3 bg-secondary shadow-sm d-flex justify-content-around align-items-center rounded">
-                <div>
-                  <h3 class="fs-2 text-white">Apply For Jobs</h3>
-                  <a
-                    href="ApplyForJob"
-                    class="btn btn-danger active"
-                    role="button"
-                    aria-pressed="true"
-                  >
-                    Apply
                   </a>
                 </div>
               </div>

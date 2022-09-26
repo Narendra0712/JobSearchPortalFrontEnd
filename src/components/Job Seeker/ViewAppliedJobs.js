@@ -1,36 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import jobproviderservices from "../../services/jobproviderservices";
 
-export const ViewAvilableJobs = () => {
-  const navigate = useNavigate();
-  const navigateApplyForJob = () => {
-    navigate("/ApplyForJob");
-  };
-
+export const ViewAppliedJobs = () => {
   const [job, setJobs] = useState([]);
   useEffect(() => {
-    getAllJobs();
-  }, []);
-
-  const getAllJobs = () => {
-    jobproviderservices
-      .getAllJobs()
-      .then((response) => {
-        setJobs(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
+    fetch("http://localhost:9009/job/getalljobs")
+      .then((res) => res.json())
+      .then((result) => {
+        setJobs(result);
       });
-  };
-
+  }, []);
   return (
     <>
       <div className="wrapper">
-        <h2 class="fs-2 m-0 py-5 px-5">Avilable Jobs</h2>
+        <h2 class="fs-2 m-0 py-5 px-5">Your Applied Jobs</h2>
       </div>
-
       <section className="intro">
         <div className="mask d-flex align-items-center h-100">
           <div className="container">
@@ -65,16 +48,6 @@ export const ViewAvilableJobs = () => {
                               <td>{job.totalVacancy}</td>
                               <td>{job.postDate}</td>
                               <td>{job.postStatus}</td>
-                              <td>
-                                <button
-                                  type="button"
-                                  className="btn btn-warning btn-sm px-3 ms-3"
-                                  onClick={navigateApplyForJob}
-                                >
-                                  Apply
-                                  <i className="fas fa-times"></i>
-                                </button>
-                              </td>
                             </tr>
                           ))}
                         </tbody>
@@ -91,4 +64,4 @@ export const ViewAvilableJobs = () => {
   );
 };
 
-export default ViewAvilableJobs;
+export default ViewAppliedJobs;

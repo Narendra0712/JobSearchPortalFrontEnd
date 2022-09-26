@@ -15,11 +15,13 @@ export const AddEducation = () => {
   const [degreeyear, setDegreeYear] = useState("");
   const [mastersyear, setMasterYear] = useState("");
 
+  const jobseekerid = window.sessionStorage.getItem("JobSeekerId");
+  
   const navigate = useNavigate();
 
   const handleClick = (e) => {
     e.preventDefault();
-    const student = {
+    const education = {
       educationtype,
       sscpercent,
       hscpercent,
@@ -31,6 +33,10 @@ export const AddEducation = () => {
       diplomayear,
       degreeyear,
       mastersyear,
+      jobseeker: {
+        jobseekerid
+      }
+      
     };
     if (educationtype.length === 0) {
       toast.error("Please Enter Eduaction Type");
@@ -42,23 +48,29 @@ export const AddEducation = () => {
       fetch("http://localhost:9009/jobseeker/addeducation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(student),
-      }).then(() => {
-        toast.success("Eduaction Details Added Successfully !");
-        navigate("/JobSeekerHome");
+        body: JSON.stringify(education),
+      }).then((response) => {
+
+        if (response.status === "success") {
+          toast.success("Education Details Added Successfully !");
+          navigate("/Education");
+        } else {
+          toast.error("Already Exists !");
+        }
+        
       });
     }
   };
   return (
     <>
       <div className="wrapper">
-        <h2 class="fs-2 m-0 py-5 px-5"> Add Eduaction Details</h2>
+        <h2 class="fs-2 m-0 py-5 px-5">Add Education Details</h2>
       </div>
       <section className="wrapper">
         <form className="form-right">
           <div className="row">
             <div className="mb-3">
-              <label>Eduaction Type</label>
+              <label>Education Type</label>
               <input
                 type="text"
                 className="input-field"
@@ -76,6 +88,15 @@ export const AddEducation = () => {
               ></input>
             </div>
             <div className="mb-3">
+              <label>SSC Passout Year</label>
+              <input
+                type="text"
+                className="input-field"
+                value={sscyear}
+                onChange={(e) => setSscYear(e.target.value)}
+              ></input>
+            </div>
+            <div className="mb-3">
               <label>HSC Percentage</label>
               <input
                 type="text"
@@ -86,48 +107,21 @@ export const AddEducation = () => {
             </div>
           </div>
           <div className="mb-3">
-            <label>Diploma Percentage</label>
-            <input
-              type="text"
-              className="input-field"
-              value={diplomapercent}
-              onChange={(e) => setDiplomaMarks(e.target.value)}
-            ></input>
-          </div>
-          <div className="mb-3">
-            <label>Degree Percentage</label>
-            <input
-              type="text"
-              className="input-field"
-              value={degreepercent}
-              onChange={(e) => setDegreeMarks(e.target.value)}
-            ></input>
-          </div>
-          <div className="mb-3">
-            <label>Master Percentage</label>
-            <input
-              type="text"
-              className="input-field"
-              value={masterspercent}
-              onChange={(e) => serMasterMarks(e.target.value)}
-            ></input>
-          </div>
-          <div className="mb-3">
-            <label>SSC Passout Year</label>
-            <input
-              type="text"
-              className="input-field"
-              value={sscyear}
-              onChange={(e) => setSscYear(e.target.value)}
-            ></input>
-          </div>
-          <div className="mb-3">
             <label>HSC Passout Year</label>
             <input
               type="text"
               className="input-field"
               value={hscyear}
               onChange={(e) => setHscYear(e.target.value)}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label>Diploma Percentage</label>
+            <input
+              type="text"
+              className="input-field"
+              value={diplomapercent}
+              onChange={(e) => setDiplomaMarks(e.target.value)}
             ></input>
           </div>
           <div className="mb-3">
@@ -140,6 +134,15 @@ export const AddEducation = () => {
             ></input>
           </div>
           <div className="mb-3">
+            <label>Degree Percentage</label>
+            <input
+              type="text"
+              className="input-field"
+              value={degreepercent}
+              onChange={(e) => setDegreeMarks(e.target.value)}
+            ></input>
+          </div>
+          <div className="mb-3">
             <label>Degree Passout Year</label>
             <input
               type="text"
@@ -148,7 +151,15 @@ export const AddEducation = () => {
               onChange={(e) => setDegreeYear(e.target.value)}
             ></input>
           </div>
-
+          <div className="mb-3">
+            <label>Master Percentage</label>
+            <input
+              type="text"
+              className="input-field"
+              value={masterspercent}
+              onChange={(e) => serMasterMarks(e.target.value)}
+            ></input>
+          </div>
           <div className="mb-3">
             <label>Master Degree Passout Year</label>
             <input
