@@ -4,16 +4,12 @@ import { toast } from "react-toastify";
 
 export const DeleteJobProvider = ({ jobprovider }) => {
   const deleteJobProvider = (id) => {
-    axios
-      .delete("http://localhost:9009/jobprovider/delete?jobproviderid=1")
-      .then(
-        (response) => {
-          toast.success("Delete successfully !");
+    axios.delete('http://localhost:9009/jobprovider/deletejobpost?jobid=1').then((response)=>{
+            toast.success("Job Provider Deleted !")
         },
-        (error) => {
-          toast.error("Deletion Failed!");
-        }
-      );
+        (error)=>{
+            toast.error("Job Provider Not Deleted !")
+        })
   };
 
   return (

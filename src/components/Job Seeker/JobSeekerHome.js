@@ -7,7 +7,6 @@ export const JobSeekerHome = () => {
         <div className="wrapper">
           <h2 class="fs-2 m-0 py-5 px-5">Job Seeker Dashboard</h2>
         </div>
-
         <div class="container-fluid px-4">
           <div class="row g-3 my-2">
             <div class="col-md-3">

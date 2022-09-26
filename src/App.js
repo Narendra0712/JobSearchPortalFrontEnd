@@ -46,6 +46,11 @@ import AddExperiance from './components/Job Seeker/AddExperiance';
 import UpadateJobProviderProfile from './components/Job Provider/UpadateJobProviderProfile';
 import ViewAvilableJobs from './components/Job Seeker/ViewAvilableJobs';
 import ApplyForJob from './components/Job Seeker/ApplyForJob';
+import Experience from './components/Job Seeker/Experience';
+import Education from './components/Job Seeker/Education';
+import EduactionDetail from './components/Job Seeker/EduactionDetail';
+import ExperienceDetail from './components/Job Seeker/ExperienceDetail';
+
 
 function App() {
   return (
@@ -96,6 +101,12 @@ function App() {
       <Route path="/AddExperiance" element={<AddExperiance/>}/>
       <Route path="/ViewAvilableJobs" element={<ViewAvilableJobs/>}/>
       <Route path="/ApplyForJob" element={<ApplyForJob/>}/>
+      <Route path="/Experience" element={<Experience/>}/>
+      <Route path="/Education" element={<Education/>}/>
+      <Route path="/EduactionDetail" element={<EduactionDetail/>}/>
+      <Route path="/ExperienceDetail" element={<ExperienceDetail/>}/>
+
+
 
       
 

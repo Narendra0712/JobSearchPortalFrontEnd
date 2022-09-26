@@ -8,7 +8,7 @@ export const UpdateAdmin = () => {
   const [adminid, setAdminid] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const navigate = useNavigate();
   const location = useLocation();
   const id = location.state.id;
@@ -46,9 +46,11 @@ export const UpdateAdmin = () => {
   };
   return (
     <>
+      <div className="wrapper">
+        <h2 class="fs-2 m-0 py-5 px-5">Update Admin Details</h2>
+      </div>
       <section className="wrapper">
         <form className="form-right">
-          <h2 className="text-uppercase text-center">Update Admin Details</h2>
           <div className="row">
             <div className="mb-3">
               <label>User Name</label>

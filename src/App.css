@@ -124,7 +124,7 @@ body{
 }
 
 .wrapper .form-right h2{
-    color: #3786bd;
+    color: black;
 }
 
 .wrapper .form-right label{
@@ -274,3 +274,8 @@ body{
   margin-right: auto;
 }
 
+.bs-button{
+    margin-left: 35%;
+    margin-top: 5%;
+
+}

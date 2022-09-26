@@ -66,13 +66,11 @@ export const JobSeekerRegistration = () => {
     }
   };
   return (
-    <>
+    <><div className="wrapper">
+    <h2 class="fs-2 m-0 py-5 px-5">Job Seeker Registration</h2>
+  </div>
       <section className="wrapper">
         <form className="form-right">
-          <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
-          <h2 className="text-uppercase text-center">
-            Job Seeker Registration
-          </h2>
           <div className="row">
             <div className="mb-3">
               <label>First Name</label>

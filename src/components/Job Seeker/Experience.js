@@ -1,20 +1,21 @@
 import React from "react";
 
-export const AdminHome = () => {
+export const Experience = () => {
   return (
     <>
+      <div className="wrapper">
+        <h2 class="fs-2 m-0 py-5 px-5">Manage Experience Details</h2>
+      </div>
       <div id="page-content-wrapper">
-        <div className="wrapper">
-          <h2 class="fs-2 m-0 py-5 px-5">Admin Dashboard</h2>
-        </div>
         <div class="container-fluid px-4">
           <div class="row g-3 my-2">
-            <div class="col-md-3">
+
+          <div class="col-md-3">
               <div class="p-3 bg-warning shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
-                  <h3 class="fs-2 text-dark">Job Providers</h3>
+                  <h3 class="fs-2 text-dark">Experience Details</h3>
                   <a
-                    href="ViewAllJobprovider"
+                    href="ExperienceDetail"
                     class="btn btn-danger active"
                     role="button"
                     aria-pressed="true"
@@ -28,14 +29,14 @@ export const AdminHome = () => {
             <div class="col-md-3">
               <div class="p-3 bg-secondary shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
-                  <h3 class="fs-2 text-white">Job Seekers</h3>
+                  <h3 class="fs-2 text-white">Add Experience</h3>
                   <a
-                    href="ViewAllJobSeeker"
+                    href="AddExperiance"
                     class="btn btn-danger active"
                     role="button"
                     aria-pressed="true"
                   >
-                    View
+                    Add
                   </a>
                 </div>
               </div>
@@ -44,30 +45,14 @@ export const AdminHome = () => {
             <div class="col-md-3">
               <div class="p-3 bg-info shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
-                  <h3 class="fs-2 text-dark">View All Jobs</h3>
+                  <h3 class="fs-2 text-dark">Update Experience</h3>
                   <a
-                    href="ViewAllJobs"
+                    href="UpdateExperiance"
                     class="btn btn-danger active"
                     role="button"
                     aria-pressed="true"
                   >
-                    View
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="p-3 bg-danger shadow-sm d-flex justify-content-around align-items-center rounded">
-                <div>
-                  <h3 class="fs-2 text-white">Manage Admin</h3>
-                  <a
-                    href="AdminProfile"
-                    class="btn btn-dark active"
-                    role="button"
-                    aria-pressed="true"
-                  >
-                    View
+                    Update
                   </a>
                 </div>
               </div>
@@ -79,4 +64,4 @@ export const AdminHome = () => {
   );
 };
 
-export default AdminHome;
+export default Experience;

@@ -15,58 +15,47 @@ export const AddEducation = () => {
   const [degreeyear, setDegreeYear] = useState("");
   const [mastersyear, setMasterYear] = useState("");
 
-  const navigate =useNavigate()
+  const navigate = useNavigate();
 
   const handleClick = (e) => {
     e.preventDefault();
     const student = {
-        educationtype,
-        sscpercent,
-        hscpercent,
-        diplomapercent,
-        degreepercent,
-        masterspercent,
-        sscyear,
-        hscyear,
-        diplomayear,
-        degreeyear,
-        mastersyear,
+      educationtype,
+      sscpercent,
+      hscpercent,
+      diplomapercent,
+      degreepercent,
+      masterspercent,
+      sscyear,
+      hscyear,
+      diplomayear,
+      degreeyear,
+      mastersyear,
     };
     if (educationtype.length === 0) {
       toast.error("Please Enter Eduaction Type");
     } else if (sscpercent.length === 0) {
       toast.error("Please Enter SSC Percentage");
-    } else if (hscpercent.length === 0) {
-      toast.error("Please Enter HSC Percentage");
-    } else if (degreepercent.length === 0) {
-      toast.error("Please Enter Degree Percentage");
     } else if (sscyear.length === 0) {
       toast.error("Please Enter SSC Passout Year");
-    } else if (hscyear.length === 0) {
-      toast.error("Please Enter HSC Passout Year");
-    } else if (diplomayear.length === 0) {
-      toast.error("Please Enter Diploma Passout Year");
-    } else if (degreeyear.length === 0) {
-      toast.error("Please Enter Degree Passout Year");
     } else {
       fetch("http://localhost:9009/jobseeker/addeducation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(student),
       }).then(() => {
-        toast.success("Eduaction Details Added Successfully !")
-        navigate("/JobSeekerHome")
+        toast.success("Eduaction Details Added Successfully !");
+        navigate("/JobSeekerHome");
       });
     }
   };
   return (
     <>
+      <div className="wrapper">
+        <h2 class="fs-2 m-0 py-5 px-5"> Add Eduaction Details</h2>
+      </div>
       <section className="wrapper">
         <form className="form-right">
-          <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
-          <h2 className="text-uppercase text-center">
-            Add Eduaction Details
-          </h2>
           <div className="row">
             <div className="mb-3">
               <label>Eduaction Type</label>
@@ -182,7 +171,6 @@ export const AddEducation = () => {
         </form>
       </section>
     </>
-    
   );
 };
 

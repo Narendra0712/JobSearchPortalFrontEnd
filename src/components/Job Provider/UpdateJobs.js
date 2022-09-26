@@ -60,9 +60,11 @@ export const UpdateJobs = () => {
   
   return (
     <>
+    <div className="wrapper">
+        <h2 class="fs-2 m-0 py-5 px-5">Update Jobs</h2>
+      </div>
       <section className="wrapper">
         <form className="form-right">
-          <h2 className="text-uppercase text-center">Update Jobs</h2>
           <div className="row">
             <div className="mb-3">
               <label>Job Titile</label>

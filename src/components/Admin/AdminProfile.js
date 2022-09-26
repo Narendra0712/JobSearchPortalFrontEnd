@@ -4,10 +4,6 @@ import adminservices from "../../services/adminservices";
 
 export const AdminProfile = () => {
   const navigate = useNavigate();
-
-  // const navigateDeleteAdmin = () => {
-  //   navigate("/DeleteAdmin");
-  // };
   const [admin, setAdmins] = useState([]);
   useEffect(() => {
     getAllAdmins();
@@ -40,26 +36,15 @@ export const AdminProfile = () => {
         console.log(error);
       });
   };
-  // useEffect(() => {
-  //   fetch("http://localhost:9009/admin/getalladmin")
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       setAdmins(result);
-  //     });
-  // }, []);
   return (
     <>
-      <h1 className="text-center mt-5">Admin List</h1>
-      <hr></hr>
-      <div class="row">
-        <div class="col text-center">
-          <a
-            href="AdminRegisteration"
-            className="col-md-1 ms-3 mb-3 text-center btn btn-secondary"
-          >
+      <div className="wrapper">
+        <h2 class="fs-2 m-0 py-5 px-5">Admin List</h2>
+        <div class="bs-button">
+            <a href="AdminRegisteration" className="btn btn-secondary btn-lg">
             Add Admin
-          </a>
-        </div>
+            </a>
+          </div>
       </div>
       <section className="intro">
         <div className="mask d-flex align-items-center h-100">

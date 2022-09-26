@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import jobproviderservices from "../../services/jobproviderservices";
 
 export const UpadateJobProviderProfile = () => {
-  const [jobproviderid, setJobProviderId]= useState("");
+  const [jobproviderid, setJobProviderId] = useState("");
   const [fname, setFname] = useState("");
   const [mname, setMname] = useState("");
   const [lname, setLname] = useState("");
@@ -39,8 +39,17 @@ export const UpadateJobProviderProfile = () => {
 
   const UpdateJobProvider = (e) => {
     e.preventDefault();
-    const jobprovider = {jobproviderid, fname, mname, lname, companyname, emailid, mobileno,username,
-      password };
+    const jobprovider = {
+      jobproviderid,
+      fname,
+      mname,
+      lname,
+      companyname,
+      emailid,
+      mobileno,
+      username,
+      password,
+    };
 
     if (id) {
       jobproviderservices
@@ -59,12 +68,11 @@ export const UpadateJobProviderProfile = () => {
 
   return (
     <>
+      <div className="wrapper">
+        <h2 class="fs-2 m-0 py-5 px-5"> Update Details</h2>
+      </div>
       <section className="wrapper">
         <form className="form-right">
-          <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
-          <h2 className="text-uppercase text-center">
-            Update Details
-          </h2>
           <div className="row">
             <div className="mb-3">
               <label>First Name</label>

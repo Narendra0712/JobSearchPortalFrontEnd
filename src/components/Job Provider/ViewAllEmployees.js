@@ -11,8 +11,9 @@ export const ViewAllEmployees = () => {
   }, []);
   return (
     <>
-      <h1 className="text-center mt-5">Employees</h1>
-      <hr></hr>
+      <div className="wrapper">
+        <h2 class="fs-2 m-0 py-5 px-5">Employees</h2>
+      </div>
       <section className="intro">
         <div className="mask d-flex align-items-center h-100">
           <div className="container">

@@ -50,7 +50,7 @@ export const PostJobs = () => {
         <form className="form-right">
           <h2 className="text-center text-dark">Wel Come to Jobs Adda</h2>
           <h2 className="text-uppercase text-center">
-            Job Seeker Registration
+        Post Job
           </h2>
           <div className="row">
             <div className="mb-3">

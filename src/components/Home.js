@@ -42,17 +42,23 @@ const Home = () => {
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="1.jpg" className="d-block w-100" alt="..." />
+            <img
+              src="recruiting-amaris1.gif"
+              className="d-block w-100"
+              alt="..."
+            />
             <div className="carousel-caption d-none d-md-block">
               <h1 className="text-dark">Welcome to Jobs Adda</h1>
               <p className="text-dark">Let's Work Together</p>
             </div>
           </div>
           <div className="carousel-item">
-            <img src="2.jpg" className="d-block w-100" alt="..." />
+            <img src="1.jpg" className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
               <h2 className="text-dark">Your Dream Job is Waiting Here</h2>
-              <p>Trending Jobs and Daily Update on Vacancies</p>
+              <p className="text-dark">
+                Trending Jobs and Daily Update on Vacancies
+              </p>
             </div>
           </div>
           <div className="carousel-item">
@@ -88,12 +94,11 @@ const Home = () => {
       </div>
       <h1 className="text-center mt-3">Latest Jobs</h1>
       <hr></hr>
-
       <div className="mask d-flex align-items-center h-100">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12">
-              <div className="card shadow-2-strong">
+              <div className="card shadow-2-strong mb-5">
                 <div className="card-body">
                   <div className="table-responsive">
                     <table className="table table-borderless mb-0">
@@ -101,12 +106,12 @@ const Home = () => {
                         <tr>
                           <th className="text-dark">Job Titile</th>
                           <th className="text-dark">Job Location</th>
-
                           <th className="text-dark">Job Description</th>
                           <th className="text-dark">Post Date</th>
                           <th className="text-dark">Post Status</th>
                         </tr>
-                      </thead><hr></hr>
+                      </thead>
+                      <hr></hr>
                       <tbody>
                         {job.map((job) => (
                           <tr key={job.id}>

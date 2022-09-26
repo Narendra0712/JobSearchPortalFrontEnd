@@ -3,10 +3,10 @@ import React from "react";
 export const JobProviderHome = () => {
   return (
     <>
-      <div id="page-content-wrapper">
       <div className="wrapper">
-          <h2 class="fs-2 m-0 py-5 px-5">Job Provider Dashboard</h2>
-        </div>
+        <h2 class="fs-2 m-0 py-5 px-5">Job Provider Dashboard</h2>
+      </div>
+      <div id="page-content-wrapper">
         <div class="container-fluid px-4">
           <div class="row g-3 my-2">
             <div class="col-md-3">
