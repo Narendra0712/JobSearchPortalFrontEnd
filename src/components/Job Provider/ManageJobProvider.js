@@ -1,6 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const ManageJobProvider = () => {
+
+  const navigate = useNavigate();
+  const id = window.sessionStorage.getItem("JobProviderId");
+
+  const deleteJobProvider = (id) => {
+    axios.delete("http://localhost:9009/jobprovider/delete?jobproviderid=1").then(
+      (response) => {
+        toast.success("Job Provider Deleted !");
+        navigate("/");
+      },
+      (error) => {
+        toast.error("Deletion Fails!");
+      }
+    );
+  };
+
   return (
     <>
       <div id="page-content-wrapper">
@@ -30,14 +49,14 @@ export const ManageJobProvider = () => {
               <div class="p-3 bg-danger shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
                   <h3 class="fs-2 text-light">Delete Profile</h3>
-                  <a
-                    href="DeleteJobProvider"
-                    class="btn btn-dark active"
-                    role="button"
-                    aria-pressed="true"
-                  >
-                    Delete
-                  </a>
+                  <button
+                                  type="button"
+                                  className="btn btn-dark active"
+                                  onClick={deleteJobProvider}
+                                >
+                                  Delete
+                                  <i className="fas fa-times"></i>
+                                </button>
                 </div>
               </div>
             </div>

@@ -21,8 +21,7 @@ import UpdateAdmin from './components/Admin/UpdateAdmin';
 import DeleteAdmin from './components/Admin/DeleteAdmin';
 import ViewAllJobprovider from './components/Admin/ViewAllJobprovider';
 import ManageJobProvider from './components/Job Provider/ManageJobProvider';
-import DeleteJobProvider from './components/Job Provider/DeleteJobProvider';
-
+// import DeleteJobProvider from './components/Job Provider/DeleteJobProvider';
 import JobProviderRegistration from './components/Job Provider/JobProviderRegistration';
 import JobProviderHome from './components/Job Provider/JobProviderHome';
 import ViewAllEmployees from './components/Job Provider/ViewAllEmployees';
@@ -85,7 +84,7 @@ function App() {
       <Route path="/PostJobs" element={<PostJobs/>}/>
       <Route path="/JobProviderProfile" element={<JobProviderProfile/>}/>
       <Route path="/UpdateJobs" element={<UpdateJobs/>}/>
-      <Route path="/DeleteJobProvider" element={<DeleteJobProvider/>}/>
+
       <Route path="/UpadateJobProviderProfile" element={<UpadateJobProviderProfile/>}/>
       <Route path="/AddExperiance" element={<AddExperiance/>}/>
 
