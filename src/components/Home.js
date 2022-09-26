@@ -97,7 +97,7 @@ const Home = () => {
                 <div className="card-body">
                   <div className="table-responsive">
                     <table className="table table-borderless mb-0">
-                      <thead>
+                      <thead className="fs-5">
                         <tr>
                           <th className="text-dark">Job Titile</th>
                           <th className="text-dark">Job Location</th>
@@ -106,8 +106,8 @@ const Home = () => {
                           <th className="text-dark">Post Date</th>
                           <th className="text-dark">Post Status</th>
                         </tr>
-                      </thead>
-                      <tbody className="fs-5">
+                      </thead><hr></hr>
+                      <tbody>
                         {job.map((job) => (
                           <tr key={job.id}>
                             <td>{job.jobTitle}</td>
