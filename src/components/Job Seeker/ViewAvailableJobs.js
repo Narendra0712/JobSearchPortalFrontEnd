@@ -1,16 +1,35 @@
 import React, { useEffect, useState } from "react";
 import jobproviderservices from "../../services/jobproviderservices";
+import jobseekerservices from "../../services/jobseekerservices";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const ViewAvailableJobs = () => {
-  const navigate = useNavigate();
-  const uslocation = useLocation();
-  const id = uslocation.state.id;
+  const [jpjobs,setJpJobs] = useState([]);
+  
+  const jobseekerid=window.sessionStorage.getItem("JobSeekerId");
+  const jobid=jpjobs.jobid;
 
-  const ApplyForJob = () => {};
-
-  const [job, setJobs] = useState([]);
-  const [jobid, setJobId] = useState([]);
+  const ApplyForJob = () => {
+    const applicationdetails={
+      jobseeker:{
+        jobseekerid
+    },
+    job:
+    {
+      jobid
+    }
+    }
+    jobseekerservices
+    .applyJob(applicationdetails)
+    .then((response) => {
+     toast.success("Successfully Applied!")
+    })
+    .catch((error) => {
+      console.log(error);
+      toast.error("Application Failed !")
+    });
+  };
 
   useEffect(() => {
     getAllJobs();
@@ -20,7 +39,7 @@ export const ViewAvailableJobs = () => {
     jobproviderservices
       .getAllJobs()
       .then((response) => {
-        setJobs(response.data);
+        setJpJobs(response.data);
         console.log(response.data);
       })
       .catch((error) => {
@@ -57,17 +76,17 @@ export const ViewAvailableJobs = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {job.map((job) => (
-                            <tr key={job.id}>
-                              <td>{job.jobid}</td>
-                              <td>{job.jobTitle}</td>
-                              <td>{job.salary}</td>
-                              <td>{job.location}</td>
-                              <td>{job.jobCategory}</td>
-                              <td>{job.jobDescription}</td>
-                              <td>{job.totalVacancy}</td>
-                              <td>{job.postDate}</td>
-                              <td>{job.postStatus}</td>
+                          {jpjobs.map((jpjobs) => (
+                            <tr key={jpjobs.jobid}>
+                              <td>{jpjobs.jobid}</td>
+                              <td>{jpjobs.jobTitle}</td>
+                              <td>{jpjobs.salary}</td>
+                              <td>{jpjobs.location}</td>
+                              <td>{jpjobs.jobCategory}</td>
+                              <td>{jpjobs.jobDescription}</td>
+                              <td>{jpjobs.totalVacancy}</td>
+                              <td>{jpjobs.postDate}</td>
+                              <td>{jpjobs.postStatus}</td>
                               <td>
                                 <button
                                   type="button"

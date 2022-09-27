@@ -11,6 +11,7 @@ export const GETEXPERIENCE = "http://localhost:9009/jobseeker/getexperience/";
 export const GETEXPERIENCEBYID = "http://localhost:9009/jobseeker/getexperiencebyid/";
 export const GETEDUCATIONBYID="http://localhost:9009/jobseeker/geteducationbyid/";
 export const DELETEEXPERIENCE ="http://localhost:9009/jobseeker/deleteexp?expid=";
+export const APPLYFORJOB ="http://localhost:9009/jobseeker/apply";
 
 class jobseekerservices {
     getAllJobSeeker() {
@@ -55,6 +56,10 @@ class jobseekerservices {
 
     deleteJobSeekerExperience(expid){
       return axios.delete(DELETEEXPERIENCE + expid)
+    }
+
+    applyJob(applicationdetails){
+      return axios.post(APPLYFORJOB, applicationdetails)
     }
   }
 

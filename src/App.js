@@ -3,7 +3,6 @@ import './App.css';
 import { ToastContainer } from 'react-toastify';
 import { Route, Routes } from 'react-router-dom'
 
-import Protected from './Protected';
 
 import Home from './components/Home';
 import About from './components/About';
