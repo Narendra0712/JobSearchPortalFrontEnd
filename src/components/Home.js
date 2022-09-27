@@ -5,7 +5,7 @@ import jobproviderservices from "../services/jobproviderservices";
 const Home = () => {
   const navigate = useNavigate();
   const navigateApplyForJob = () => {
-    navigate("/ApplyForJob");
+    navigate("/JobSeekerLogin");
   };
   const [job, setJobs] = useState([]);
   useEffect(() => {
