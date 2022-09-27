@@ -26,7 +26,9 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
+            </ul>
+            <ul className="navbar-nav ml-auto my-2 mb-lg-0">
+            <li className="nav-item">
                 <Link
                   className="nav-link active text-light"
                   aria-current="page"
@@ -55,17 +57,6 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              ></input>
-              <button className="btn btn-success text-light" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>
